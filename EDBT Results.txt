@@ -1,0 +1,142 @@
+SQLSig1 -> ME1, PVE1, ME2, PVE1, IVE1 (category: comparison with default aggregation) -5  -
+SQLSig2 -> ME1, Agg1, ME2, IVE1, PVE1, IVE2  (Category:comparison with explicit aggr) - 4 -	
+SQLSig3 -> ME1, PVE1, ME2, PVE1, IVE1 (Category:comparison with implicit count)-8  -
+SQLSig4 -> ME1, IVE1, CE1, IVE2, IVE3  (category: Comparison between implicit aggr) - 9 -
+SQLSig5 -> CE1, Agg1, ME1, IVE1, IVE2, IVE3 (Category: Comparison between Explicit Aggr) - 10 -
+SQLSig6-> ME1, PVE1, ME2, PVE1, IVE1 (Category: Numeric Comparison between subqueries) - 6 -
+SQLSig7-> ADE1, ME1, ME2, IVE1, IVE2 (Category: Difference between numeric entities) - 7
+SQLSig8-> Agg1, ME1, AGE1, IVE1, IVE2, TF1, TF2 (Timebased Growth of explicit aggregation) - 3 
+SQLSig9-> ARE1, ME1, IVE1, IVE2 (Category: Mathematical operation (Max- Min)) - 11 
+SQLSig10-> APE1, Agg1, ME1, IVE1, IVE2, IVE3, TF1 (Category: Percentage:IVE)  -2 
+SQLSig11-> GB1, IVE1, APE1, Agg1, ME1, IVE2, TF1 (Category: Percentage:GB) - 1 
+
+
+Collisions
+SQLSig1,SQLSig3,SQLSig6 -> Rought Set to introduce ME.measureForConcept (=yes for 1,=no for 3),ME.isNumericProperty(=yes for 6, =no for 1,3)
+-- SQLSig4,SQLSig5-> Rought Set to introduce ME.measureForConcept(=yes for 4, =no for 5)
+SQLSig10,SQLSig11 -> RoughtSet to introduce Q.hasGB(=yes for 11, =no for 10)
+
+
+for SigGen + Sig Matching in incremental
+ -- SQLSig10, SQLSig3, SQLSig6
+
+
+Result Set:
+
+Total questions 51 + 93 = 144
+	ATHENA: 51 (35.4%)
+	GuidedATHENA: 93,  
+					Accuracy:88.89		Recall: 82.7(77/93)		Precision: 92.77 (77/83) 
+			SigGen:	Accuracy: 55.56		Recall: 31.18(29/93)	Precision: 100%
+	
+			SigGen(I): 72/144=50.00		Recall: 21/93=22.58		Precision: 21/29 = 72.41
+   SigGen+SigMatch(I): 103/144 = 71.52	Recall: 52/93=55.91		Precision:  77-25/77+6 = 62.65
+
+	Top3: 			Accuracy: 63.88		Recall: 44.08	Precision: 95.12%
+	Top 6:			Accuracy: 78.47		Recall: 66.67	Precision:  93.54
+	top 10:			Accuracy: 88.19		Recall: 81.72	Precision: 93.42
+
+
+							#match_exact, #match_heuristics 	#unmatched    #unmatched_other. #matched_from_other
+	    1. SQlSig11 (19)  -> 		6,			10,						3				1				0
+	    2. SQlSig10 (18) -> 		4			9						5				2				0
+	    3. SQLSig8 (15)  -> 		4			8						3				1				2
+	    4. SQLSig2 (9)  ->			4			4						1				0				0	
+	    5. SQLSig1 (7)  -> 			2			4						1				1				2
+	    6. SQLSig6 (7)  -> 			2			5						0				0				0
+	    7. SQLSig7 (5)  ->			2			2						1				0				1
+	    8. SQLSig3 (5)  ->			2			3						0				0				0
+	    9. SQLSig4 (4)  ->			1			2						1				1				0
+	   10. SQLSig5 (2)  ->			1			1						0				0				1
+	   11. SQLSig9 (2)  -> 			1			0						1				0				0
+	   							-------		---------				--------		-------				-----
+	   								29			48						16				6				6
+		
+
+
+
+		Recall Fails
+		SQLSig11: 
+
+
+
+==================================================================================
+
+
+For Finance
+
+
+SQLSIG1 -> ME1 PVE1 ME2 PVE1 IVE1 (Category: Numeric Comparison between subqueries)
+SQLSIG2 -> ME1 PVE1 ME2 PVE1 IVE1 (Category:Comparison with implicit count)
+SQLSIG3 -> ME1 IVE1 PVE1 IVE2 ME2 PVE1 ME1 IVE3 (category: comparison with default aggregation)
+SQLSig4 -> ME1, Agg1, ME2, IVE1, PVE1, IVE2  (Category:comparison with explicit aggr)
+SQLSig5 -> ME1, IVE1, CE1, IVE2, IVE3  (category: Comparison between implicit aggr) 
+SQLSig6 -> CE1, Agg1, ME1, IVE1, IVE2, IVE3  (Category: Comparison between Explicit Aggr) 
+SQLSig11 -> OBE1, ME1, GB1, ME2, TF1 (category: top per group for numeric)
+SQLSig12 -> OBE1, ME1, GB1, Agg1, ME2, TF1 (Category: top per group for Aggr)
+SQLSig8 -> Agg1, ME1, AGE1, IVE1,  TF1, TF2 (Timebased Growth of explicit aggregation) 
+SQLSig9 -> ARE1, ME1, IVE1, IVE2, TF1 (Category: Mathematical operation (Max- Min)) 
+SQLSig10 ->  ME1, IVE1, IVE2, ME2, PVE1, FE1, TF1 (category: Comparison over Frequency)
+SQLSig7 -> ADE1, ME1, ME2, IVE1, TF1 (Category: Difference between numeric entities)
+SQLSig13 -> ME1, IVE1, ME2, IVE2, AE1, IVE3, TF1 (category: and for nesting)
+SQLSig14 -> ME1, NE1, ME2 (category: NOT on Concept)
+
+
+
+Collisions:
+SQLSig1,SQLSig2,SQLSig3 (ME2.isNumeric=yes for SQLSIG1, ME2.isMeasure=(yes for SQLSIG3, =no for SQLSig2)
+
+
+
+SQLSig4: Find all companies with average salary offered for directors more than Alphanet
+SQLSig5: how does the stock transactions compare between IBM and Microsoft
+SQLSig6: Compare the average salary for directors between IBM and Microsoft
+SQLSig11: Find top 3 companies in each industry in terms of revenue in 2019
+SQLSig12: Find top 3 companies in each industry in terms of average revenue over last 3 years
+SQLSig8: How has the average revenue growth for IBM in 2019 as compared to 2016?
+SQLSig9: What is the range of revenue numbers reported by software companies in California in 2019
+SQLSig10: who bought Citibank stocks more than 2 times in last 3 months
+SQLSig7: What is the difference between revenue and expense for IBM in 2019
+SQLSig13: Who bought stocks of IBM and Microsoft in 2019
+SQLSig14: Find all managers who are not customers 
+
+
+
+FE: FrequencyEntity (more thna 2 times)
+OBE1: OrderByEntity
+
+
+Total questions 82 + 130 = 212
+	ATHENA: 82 (38.67%)
+	GuidedATHENA: 130,  
+					Accuracy: 87.73		Recall: 80(104/130)		Precision: 90.43
+			SigGen:	Accuracy: 61.32		Recall: 36.92 (48/130)	Precision: 100%
+	
+		  SigGen(I): Accuracy: 58.01	Recall: 31.53			PRECISION :85.41
+ SigGen+SigMatch(I): Accuracy: 79.71	Recall: 66.92			PRECISION: 75.65 (104+11-17-11/104+11)
+
+	Top3: 			Accuracy: 50(82+24/212)		Recall: 18.46	Precision: 87.5
+	Top 6:			Accuracy: 61.32		Recall: 36.92	Precision: 84.4
+	top 10:			Accuracy: 75.94		Recall: 60.76	Precision: 86.67
+
+
+
+			
+				#match_exact, 	#match_heuristics 	#unmatched    #unmatched_other. #matched_from_other
+	 SQLSig1(12): 		3			    4					5								2
+	 SQLSig2(11):		3				5					4								1
+	 SQLSig3(11):		4				5					2								0
+	 SQLSig4(10):		2				5					3								1
+	 SQLSig5(10):		4				4					2								1
+	 SQLSig6(9):		5				4					0								2
+	SQLSig11(9):		5				3					1								1
+	SQLSig12(9):		4				4					1								0
+	 SQLSig8(9):		3				4					2								1
+	 SQLSig9(9):		5				3					2								1	
+	SQLSig10(8):		4				4					0								0
+	 SQLSig7(7):		2				4					2								0
+	SQLSig13(6):		1				5					0								0
+	SQLSig14(6):		3				2					2								1
+-----------------------------------------------------------------------						----
+		= 130			=48				=56					=26								11
+

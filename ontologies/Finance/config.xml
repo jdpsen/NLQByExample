@@ -1,0 +1,182 @@
+<config>
+	<domainterms>
+		<domainterm
+			key="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasLastTradedValue"
+			value="ORDER BY https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasListingDate FETCH FIRST 1 ROWS ONLY"
+			type="translate" />
+	</domainterms>
+
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/LOAN/LoanContracts/LoanUpperTemp/EmailAddress">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/Address">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/SecuritiesTransaction">
+		<defaulttime
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasSettlementDate" />
+<!--  		<index
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasSettlementDate"
+			dateformat="yyyy-mm-dd" /> -->
+		<!-- <defaultmeasure id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasCount0"/> -->
+	</concept>
+	<concept id="http://watson.ibm.com/project/wcs/TPOX#customer">
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName3" />
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/Organization">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesListings/FinancialMarket">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/Corporation">
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasLegalName0" />
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Holding">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/FinancialInstrument">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/LOAN/LoanContracts/LoanUpperTemp/PhoneNumber">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/PostalAddress">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Security">
+		<!-- <defaultmeasure id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasCount0"/> -->
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/FinancialServiceAccount">
+		<!-- <key id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasCommonName"/> -->
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasAccountNumber" />
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesListings/ListedSecurity">
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasLegalName1" />
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasTickerSymbol1" />
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/VirtualAddress">
+	</concept>
+	<concept
+		id="http://www.omg.org/spec/LCC/Languages/LanguageRepresentation/Language">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Countries/Country">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/MonetaryAmount">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person">
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasPersonName" />
+	</concept>
+	<concept id="http://watson.ibm.com/project/wcs/TPOX#account_manager">
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName3" />
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/SecuritiesTransaction">
+		<index
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasCount0"
+			semantictype="count" />
+		<index
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasType"
+			semantictype="enum" />
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Holding">
+		<index
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasCount1"
+			semantictype="count" />
+	</concept>
+	<concept
+		id="http://www.xbrlsite.com/2013/FinancialReportOntology/ElementOfFinancialStatement.owl.xml#ElementOfFinancialStatement">
+		<key
+			id="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Utilities/Values/hasMetricValue1" />
+		 <!--  
+		<defaultmeasure
+			id="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Utilities/Values/hasMetricValue1" />
+		
+		<defaultgroupby
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricYearCalendar1" />
+		--> 
+		<!--  <defaulttime id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartDate1"/>-->
+		
+		<index id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartDate1" semantictype="time"/>
+		<defaulttime id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricYearFiscal1"/>
+		<index id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricYearFiscal1" dateformat="yyyy"/>
+		<index id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartQuarter1" semantictype="quarter"/>
+		
+		<!--  <defaultfilter
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/VirtualPlaces/hasMetricContextDimensions1"
+			value="null" />
+		<defaultfilter
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/VirtualPlaces/hasURL1"
+			value="http://fasb.org/us-gaap" />
+		<defaultfilter id="https://spec.edmcouncil.org/fibo/ontology/WCSExt/isComputed1" 
+			value="false"/> -->
+	</concept>
+	<concept
+		id="http://www.xbrlsite.com/2013/FinancialReportOntology/Disclosure.owl.xml#Disclosure">
+		<key id="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Utilities/Values/hasMetricValue0" 
+			/> 
+		<!-- 
+		<defaultmeasure id="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Utilities/Values/hasMetricValue0" 
+			/> 
+		
+		<defaultgroupby
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricYearCalendar0" />
+		-->
+		<!--  <defaulttime id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartDate0"/>-->
+		<index id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartDate0" semantictype="time"/>
+		<defaulttime id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricYearFiscal0"/>
+		<index id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricYearFiscal0" dateformat="yyyy"/>
+		<index id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartQuarter0" semantictype="quarter"/>
+		<!-- 
+		<defaultfilter
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/VirtualPlaces/hasMetricContextDimensions0"
+			value="null" />
+		<defaultfilter
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/VirtualPlaces/hasURL0"
+			value="http://fasb.org/us-gaap" />
+		<defaultfilter id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/VirtualPlaces/hasDocumentType0" 
+			value="10-Q"/>
+		<defaultfilter id="https://spec.edmcouncil.org/fibo/ontology/WCSExt/isComputed1" 
+			value="false"/> -->
+	</concept>
+
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract">
+		<defaulttime
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasEffectiveDate" />
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/ContractParty">
+		<defaulttime
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasEffectiveDate" />
+	</concept>
+<!--  
+<concept id="http://www.xbrlsite.com/2013/FinancialReportOntology/ElementOfFinancialStatement.owl.xml#Revenue">
+<defaulttime id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartDate1"/>
+</concept>
+-->
+
+</config>

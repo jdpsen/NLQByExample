@@ -1,0 +1,677 @@
+which stocks has more last treaded value than Alphabet 
+ -> ME1 PVE1 ME2 PVE1 IVE1 => SQLSIG1
+ -> stocks, more, last treaded value, than, Alphabet
+  ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {'ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC'}
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+Find all stocks having last treaded value more than Microsoft's?
+ -> ME1 ME2 PVE1 IVE1 -> SQLSIG1 
+ -> stocks, last treaded value, more than, Microsoft, in 2018
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value =  'MICROSOFT CORP'
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+For which stocks the last treaded value is higher than IBM's in the last year?
+-> ME1 ME2 PVE1 IVE1 IVE2 -> SQLSIG1  
+-> stocks, last treaded value, higher than, IBM, in the last year
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value =  'IBM'
+ IVE1.property = Year
+ IVE1.value =  2018
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+List stocks which was traded last by a higher margin than Microsoft in 2016?
+-> ME1 ME2 PVE1 IVE1 IVE2 -> SQLSIG1  
+-> stocks, traded last, higher margin, Microsoft, 2016
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value =  'MICROSOFT CORP'
+ IVE1.property = Year
+ IVE1.value =  2016
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+
+
+
+
+
+For each industry list those stocks having last treaded value less than Alphabet ?
+-> GB1 ME1 ME2 PVE1 IVE1 -> SQLSIG1 -> SQLSIG2
+-> For each industry, stocks, last treaded value, less than, Alphabet
+ GB1.Element = IndustrySectorClassifier
+ ME1.Element = ListedSecurity
+ ME2.Element =  MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {'ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' }
+ PVE1.operand1=ME2
+ PVE1.op = <
+ PVE1.operand2= IVE1
+
+Find stocks by industry which are having more last treaded value than Alphabet ?
+-> ME1 GB1 PVE1 ME2 PVE1 IVE1 -> SQLSIG2
+-> stocks, by industry, more , last treaded value, than, Alphabet
+ GB1.Element = IndustrySectorClassifier
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {'ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' }
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+List stocks based on industry with less value than Microsoft?
+-> ME1 GB1 PVE1 ME2 PVE1 IVE1 -> SQLSIG2
+-> stocks, by industry, less , value, than, Microsoft
+ GB1.Element = IndustrySectorClassifier
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {Microsoft}
+ PVE1.operand1=ME2
+ PVE1.op = M
+ PVE1.operand2= IVE1
+
+Enumerate indutry-wise the stocks which have lower trading value than IBM.
+-> ME1 GB1 PVE1 ME2 PVE1 IVE1 -> SQLSIG2
+-> stocks, industry-wise, lower , trading value, than, IBM
+ GB1.Element = IndustrySectorClassifier
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {IBM}
+ PVE1.operand1=ME2
+ PVE1.op = M
+ PVE1.operand2= IVE1
+
+
+
+
+Find all managers managing more accounts than Kristina Early ?
+-> ME1 PVE1 ME2 PVE1 IVE1 -> SQLSIG3
+-> managers, more, accounts, than, Krista Early
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=AccountManager.Name
+IVE1.value = Krista Earley
+PVE1.operand1=ME2
+pve1.op= > 
+pve1.operand2= IVE1
+
+Which managers managed less accounts than Krista Early ?
+-> ME1 PVE1 ME2 PVE1  IVE1 -> SQLSIG3
+-> managers, less, accounts, than, Kristina Early
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=AccountManager.Name
+IVE1.value = Kristina K. Early
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE1
+
+ Which investors owns less accounts than Warren Buffet 
+-> ME1 PVE1 ME2 ME2.hasMeasureForConcept=(No) PVE1 IVE1 -> SQLSIG3
+-> investors, less, accounts, than Warren Buffet
+ME1.element = Investor
+ME2=FinancialServiceAccount
+IVE1.property=Investor.Name
+IVE1.value = Warren E. Buffett
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE1
+
+Find investors having less accounts than Sundar Pichai
+-> ME1 PVE1 ME2 ME2.hasMeasureForConcept=(No) PVE1 IVE1 -> SQLSIG3
+-> investors, less, accounts, than Warren Buffet
+ME1.element = Investor
+ME2=FinancialServiceAccount
+IVE1.property=Investor.Name
+IVE1.value = Sundar Pichai
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE1
+
+
+
+
+
+For each state list all managers who managed less accounts than Kristina Early ?
+-> GB1 ME1 PVE1 ME2 PVE1 IVE1 -> SQLSIG3->SQLSIG4
+-> for each state, managers, less, accounts, than, Kristina Early
+GB1.Element = PostalAddress.hasState
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=AccountManager.Name
+IVE1.value = Krista Early
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE1
+
+list all managers in Nevada by each city who managed less accounts than Kristina Early ?
+-> ME1 IVE1 GB1 PVE1 ME2 PVE1 IVE2 -> SQLSIG4
+-> managers, Nevada, by each city, less, accounts, than, Kristina Early 
+GB1.Element = PostalAddress.hasCity
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=PostalAddress.hasState
+IVE1.value = Nevada
+IVE2.property=AccountManager.Name
+IVE2.value = Kristina K. Early
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE2
+
+List all investors in India by each city who bought more stocks than Narendra Modi?
+-> ME1 IVE1 GB1 PVE1 ME2 PVE1 IVE2 -> SQLSIG4
+-> investors, India, by each city, more, stocks, than, Narendra Modi
+GB1.Element = PostalAddress.hasCity
+ME1.element = Investors
+ME2=FinancialServiceAccount
+IVE1.property=PostalAddress.hasState
+IVE1.value = India
+IVE2.property=AccountManager.Name
+IVE2.value = Narendra Modi
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+
+For each state list all investors who bought more stocks than Donald Trump
+-> ME1 IVE1 GB1 PVE1 ME2 PVE1 IVE2 -> SQLSIG4
+-> investors, India, state, more, stocks, than, Narendra Modi
+GB1.Element = PostalAddress.hasState
+ME1.element = Investors
+ME2=FinancialServiceAccount
+IVE1.property=PostalAddress.hasState
+IVE1.value = India
+IVE2.property=AccountManager.Name
+IVE2.value = Narendra Modi
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+
+
+
+
+
+Which investors bought more IBM stocks than they sold 
+-> ME1 IVE1 PVE1 IVE2 ME2 PVE1 ME1 IVE3 -> SQLSIG5
+-> investors, bought, more, IBM, stocks, than, they, sold
+
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 1
+IVE2.property=ListedSecurity.hasTickerSymbol
+IVE2.value = IBM
+IVE3.property=SecuritiesTransaction.hasType
+IVE3.value = 2
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE3
+
+
+Find all investors who sold less Alphabet stocks than they bought
+-> ME1 IVE1 PVE1 IVE2 ME2 PVE1 ME1 IVE2 -> SQLSIG5
+-> investors, sold, less, Alphabet, stocks, than, they, bought
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=Corporation.hasLegalName
+IVE2.value = Alphabet Inc.
+IVE3.property=SecuritiesTransaction.hasType
+IVE3.value = 1
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE3
+
+Which investors sold more Microsoft Stocks than they bought in 2018
+-> ME1 IVE1 PVE1 IVE2 ME2 PVE1 ME1 IVE2 TF1 -> SQLSIG5
+-> investors, sold, more, microsoft, stocks, than, they, bought, in 2018
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=Corporation.hasLegalName
+IVE2.value = MICROSOFT CORP
+IVE3.property=SecuritiesTransaction.hasType
+IVE3.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE3
+TF1.interval [ 01-01-2018, 31-31-2018]
+
+Find all investor sold more stocks than they bought in Jan 2018
+-> ME1 IVE1 PVE1 ME2 PVE1 ME1 IVE1 TF1 -> SQLSIG5
+-> persons, sold, more, stocks, then, they, bought, in Jan 2018
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+TF1.interval [ 01-01-2018, 31-01-2018]
+
+List the investors buying more stocks than what they sold in the last five years
+-> ME1 IVE1 PVE1 ME2 PVE1 ME1 IVE1 TF1 -> SQLSIG5
+-> persons, sold, more, stocks, then, they, bought, in Jan 2018
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+TF1.interval [ 01-01-2013, 31-01-2018]
+
+
+
+
+By each industry, list all investor who sold more stocks than they bought in 2018 ?
+-> GB1 ME1 IVE1 PVE1 ME2 PVE1 ME1 IVE2 TF1 -> SQL5->SQLSIG6
+-> By each industry, executives, sold, more, stocks, than, they, bought, in 2018
+GB1.element=Industry
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+TF1.interval [ 01-01-2018, 31-01-2018]
+
+For each industry, show investors who bought more stocks in this year than in 2016?
+-> GB1 ME1 IVE1 PVE1 ME2 PVE1 ME1 IVE2 TF1 -> SQL5->SQLSIG6
+-> For each industry, investors, bought, more in this year, stocks, than, they, bought, in 2016
+GB1.element=Industry
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+TF1.interval [ 01-01-2018, 31-01-2018]
+
+By industries, which investors bought more stocks in this year than last year?
+-> GB1 ME1 IVE1 PVE1 ME2 PVE1 ME1 IVE2 TF1 -> SQL5->SQLSIG6
+-> By industries, investors, bought, more in this year, stocks, than, they, bought, in 2018
+GB1.element=Industry
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+TF1.interval [ 01-01-2018, 31-01-2018]
+
+
+
+
+
+Based on industry and country list down the investors who bought more stocks than Warren Buffet?
+-> GB1 GB2 ME1 IVE1 PVE1 ME2 PVE1 ME1 IVE2 -> SQL6->SQLSIG7
+-> By industries, investors, bought, more, stocks, than, Warren Buffet
+GB1.element=Industry
+GB2.element=Country
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+
+Based on industry and country list down the investors who bought less stocks than Kristen Earl?
+-> GB1 GB2 ME1 IVE1 PVE1 ME2 PVE1 ME1 IVE2 -> SQL6->SQLSIG7
+-> By industries, investors, bought, more, stocks, than, Warren Buffet
+GB1.element=Industry
+GB2.element=Country
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+
+
+
+
+Which investors who have invested in IBM and have also invested in Microsoft?
+-> ME1 ME2 IVE1 CVE1 ME3 IVE2 -> SQLSIG8
+-> investors, invested, IBM, and, invested, Microsoft
+ME1.element = Investor
+ME2.element = SecurityTransaction
+ME3.element = ListedSecurity
+CVE1.op = "IN"
+CVE1.operand1 = IVE1
+CVE1.operand2 = IVE2
+IVE1.property = Company.name
+IVE1.value = IBM
+IVE2.property = Company.name
+IVE2.value = Microsoft
+
+Which investors who have invested in IBM have also invested in Microsoft?
+-> ME1 ME2 IVE1 CVE1 ME3 IVE2 -> SQLSIG8
+-> investors, invested,  IBM, also, invested, Microsoft
+ME1.element = Investor
+ME2.element = SecurityTransaction
+ME3.element = ListedSecurity
+CVE1.op = "IN"
+CVE1.operand1 = IVE1
+CVE1.operand2 = IVE2
+IVE1.property = Company.name
+IVE1.value = IBM
+IVE2.property = Company.name
+IVE2.value = Microsoft
+
+
+Which investors have bought and sold the stock of IBM in the same year?
+-> ME1 IVE1, CVE1, IVE2, ME2, IVE3, CVE2, ME2 -> SQLSIG9
+-> investors, bought, and, sold, stock, IBM, same, year
+ME1.element = Investor
+IVE1.property=SecurityTransaction.hasType
+IVE1.value='1'
+IVE2.property=SecurityTransaction.hasType
+IVE2.value='2'
+CVE1.op="IN"
+CVE1.operand1=IVE1
+CVE1.operand2=IVE1
+ME2.element = ListedSecurity
+ME3.element = SecurityTransaction.date
+IVE3.property = Company.name
+IVE3.value = IBM
+CVE2.op="="
+CVE2.operand1= ME4
+CVE2.operand2=NA
+
+
+
+
+Which investors who have bought the stock of IBM and have also bought for Microsoft?
+-> ME1 IVE1 ME2 IVE2 CVE1 IVE3 IVE4 -> SQLSIG10
+-> investors, bought, stock, IBM, and, bought Microsoft
+ME1.element = Investor
+IVE1.property=SecurityTransaction.hasType
+IVE1.value='1'
+IVE3.property=SecurityTransaction.hasType
+IVE3.value='2'
+IVE2.property = Company.name
+IVE2.value = IBM
+IVE4.property = Company.name
+IVE4.value = Microsoft
+CVE1.op = "IN"
+CVE1.operand1 = IVE2
+CVE1.operand2 = IVE4
+
+
+
+Which investors sold the stocks for IBM and Microsoft?
+-> ME1 IVE1 ME2 IVE2 CVE1 IVE3 -> SQLSIG10
+-> investors, sold, stock, IBM, and, Microsoft
+ME1.element = Investor
+ME2.element = ListedSecurity
+IVE1.property=SecurityTransaction.hasType
+IVE1.value='2'
+IVE2.property = Company.name
+IVE2.value = IBM
+IVE3.property = Company.name
+IVE3.value = Microsoft
+CVE1.op = "IN"
+CVE1.operand1 = IVE2
+CVE1.operand2 = IVE3
+
+
+
+Which stock had highest treaded value in past 5 year which is greater than the all time highest treaded value of Alphabet?
+-> ME1 AggE1,ME2 TF1 PVE1, AggE2, ME3, IVE1 -> SQLSIG11
+-> stock, highest, treaded value, past 5 years, greater than, highest, treaded value , Alphabet
+ME1.element = ListedSecurity
+ME2.element = MoneytaryAmount.hasAmount
+TF1.interval = [ 01-01-2013, 31-12-2018]
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = AGGE2
+ME3.element = MoneytaryAmount.hasAmount
+IVE1.value = Alphabet
+AggE1.type=MAX
+AggE1.arg=ME2
+AggE2.type=MAX
+AggE2.arg=ME3
+
+Name all stocks with last 3 years highest treaded value  greater than the all time highest treaded value of Alphabet?
+-> ME1, TF1, AggE1, ME2 ,PVE1, AggE2, ME3, IVE1 -> SQLSIG11
+-> stocks, past 3 years, highest, treaded value, , greater than, highest, treaded value , Alphabet
+ME1.element = ListedSecurity
+ME2.element = MoneytaryAmount.hasAmount
+TF1.interval = [ 01-01-2016, 31-12-2018]
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = AGGE2
+ME3.element = MoneytaryAmount.hasAmount
+IVE1.value = Alphabet
+AggE1.type=MAX
+AggE1.arg=ME2
+AggE2.type=MAX
+AggE2.arg=ME3
+
+Which software companies had average revenue value in past 5 year less than the all time average revenue value in manufacturing?
+-> IVE1, ME1, AggE1, ME2, TF1, PVE1, AggE2, ME3,IVE2 -> SQLSIG11
+-> software, company, average, revenue value, past 5 years, greater than, average, revenue value, manufacturing
+IVE1.property=Industry.name
+IVE1.value=software
+ME1.element = company
+ME2.element = Revenue
+AggE1.type="AVG"
+AggE1.arg=ME2
+TF1.interval = [ 01-01-2013, 31-12-2018]
+PVE1.operand1 = ME2
+PVE1.op = <
+PVE1.operand2 = AggE2
+AggE2.type="AVG"
+AggE2.arg=ME3
+ME3.element = Revenue
+IVE2.property=Industry.name
+IVE2.value=manufacturing
+
+
+Which company had average profit value in past 5 year  greater than the all time average profit value?
+-> ME1, AggE1, ME2, TF1, PVE1, AggE2, ME3 -> SQLSIG11
+-> company, average, profit value, past 5 years, greater Than average, profit value
+ME1.element = company
+ME2.element = Profit
+AggE1.type="AVG"
+AggE1.arg=ME2
+TF1.interval = [ 01-01-2013, 31-12-2018]
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = AggE2
+AggE2.type="AVG"
+AggE2.arg=ME3
+ME3.element = Profit
+
+Which company had average loss value in past 3 year is less than the all time average loss value?
+-> ME1, AggE1, ME2, TF1, PVE1, AggE2, ME3 -> SQLSIG11
+-> company, average, loss value, past 5 years, greater Than average, profit value
+ME1.element = company
+ME2.element = Loss
+AggE1.type="AVG"
+AggE1.arg=ME2
+TF1.interval = [ 01-01-2016, 31-12-2018]
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = AggE2
+AggE2.type="AVG"
+AggE2.arg=ME3
+ME3.element = Loss
+
+Which company had maximum liability value in past 2 year is less than the all time average liability value?
+-> ME1, AggE1, ME2, TF1, PVE1, AggE2, ME3 -> SQLSIG11
+-> company, average, liability value, past 5 years, greater Than average, profit value
+ME1.element = company
+ME2.element = Liability
+AggE1.type="Max"
+AggE1.arg=ME2
+TF1.interval = [ 01-01-2017, 31-12-2018]
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = AggE2
+AggE2.type="AVG"
+AggE2.arg=ME3
+ME3.element = Liability
+
+
+Which company revenue is more than the average revenue in the last year
+-> ME1, ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> company, revenue, more than, average, revenue, last year
+ME1.element = Company
+ME2.element = Revenue
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = Revenue
+TF1.interval = [ 01-01-2018, 31-12-2018]
+
+Which company loss is more than the average loss in the last year
+-> ME1, ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> company, loss, more than, average, loss, last year
+ME1.element = Company
+ME2.element = Loss
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = Loss
+TF1.interval = [ 01-01-2018, 31-12-2018]
+
+Which company profit is more than the average profit in the last year
+-> ME1, ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> company, profit, more than, average, profit, last year
+ME1.element = Company
+ME2.element = profit
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = profit
+TF1.interval = [ 01-01-2018, 31-12-2018]
+
+List those companies whose profit is more than the average profit in the last year
+-> ME1, ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> company, profit, more than, average, profit, last year
+ME1.element = Company
+ME2.element = profit
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = profit
+TF1.interval = [ 01-01-2018, 31-12-2018]
+
+Which company asset value is more than the average asset value in the last 3 years
+-> ME1, ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> company, asset, more than, average, asset, last 3 years
+ME1.element = Company
+ME2.element = asset
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = asset
+TF1.interval = [ 01-01-2016, 31-12-2018]
+
+Which software companies in California generated asset value is more than the average asset value in the last 3 years
+-> IVE1,ME1, IVE2,ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> software, company, california, asset, more than, average, asset, last 3 years
+IVE1.property = Industry.name
+IVE1.value=software
+IVE2.property = PostalAddress.hasState
+IVE2.value = California
+ME1.element = Company
+ME2.element = asset
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = asset
+TF1.interval = [ 01-01-2016, 31-12-2018]
+
+Which company liability value is more than the average liability value since 2015
+-> ME1, ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> company, liability, more than, average, liability, since 2015
+ME1.element = Company
+ME2.element = liability
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = liability
+TF1.interval = [ 01-01-2015, 31-12-2100]
+
+Which companies in software are having liability value is more than the average liability value of since 2015
+-> ME1, IVE1, ME2, PVE1, AggE1, ME3, TF1 -> SQLSIG12
+-> company, softwarem, liability, more than, average, liability, since 2015
+ME1.element = Company
+ME2.element = liability
+IVE1.property=industry.name
+IVE1.property=software
+PVE1.operand1 = ME2
+PVE1.op = >
+PVE1.operand2 = ME2
+PVE2.operand1 = AggE1
+AggE1.type="AVG"
+AggE1.arg=ME3
+ME3.element = liability
+TF1.interval = [ 01-01-2015, 31-12-2100]
+
+
+
+
+

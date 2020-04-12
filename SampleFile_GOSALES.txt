@@ -1,0 +1,548 @@
+Configs
+
+
+Measure:
+Product_forecast:product_forecast.expected_volume
+
+Numeric:
+sales target
+
+Defaulttime
+Product_Forecast:SALES_YEAR
+
+Key
+product: product_type.product_type_en
+PRODUCT_BRAND: PRODUCT_BRAND.BRAND_EN
+
+Auxilliary Data Features:
+ME.keyForConcept ME.measureForConcept ME.keyForProperty ME.measureForProperty ME.defaulttimeForConcept ME.defaulttimeForProperty, ME.isNumericProperty, Q.hasGB, Q.hasIVE, Q.hasTF 
+
+
+
+category: comparison with default aggregation
+Q.Which products have more expected volume of sales than eyewear - SQLSig1
+-> products, more, expected volume, than, eyewear
+-> ME1, PVE1, ME2, PVE1, IVE1
+ME1.element: Product
+ME2.element = PRODUCT_FORECAST.expected_volume
+PVE1.operand1= ME2
+PVE1.op = >
+PVE1.operand2= IVE1 
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+
+
+Q. Find all products with expected volume of sales less than watches in 2019 -> SQLSig1 (-> SQLSig1B)
+-> products, expected volume, less than, watches, in 2019
+-> ME1, ME2, PVE1, IVE1, TF1
+ME1.element: Product
+ME2.element = PRODUCT_FORECAST.expected_volume
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=watch
+PVE1.operand1= ME2
+PVE1.op = <
+PVE1.operand2= IVE1 
+TF1.interval=[2019,2019]
+
+
+Q. Which products in Toronto have an expected volume of sales more than the eyewear sales in Paris 2019 -> SQLSig1(->SQLSig1C)
+-> products, Toronto, expected volume, more than, eyewear, Paris, 2019
+-> ME1, IVE1, ME2, PVE1, IVE2, IVE3, TF1
+ME1.element= Product
+ME2.element = PRODUCT_FORECAST.expected_volume
+IVE1.property=COUNTRY.COUNTRY_EN
+IVE1.value=Canada
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=watch
+PVE1.operand1= ME2
+PVE1.op = >
+PVE1.operand2= IVE2 
+IVE3.property=BRANCH.CITY
+IVE3.value=Paris
+TF1.interval=[2019,2019]
+
+
+Q. For each City in USA, Which products have an expected volume of sales more than the eyewear sales in Paris 2019 -> SQLSig1(->SQLSig1D)
+-> For each city, USA, products, expected volume, more than, eyewear, paris, 2019
+-> GB1, IVE1, ME2, ME3, PVE1, IVE2, IVE3, TF1
+GB1.element= Branch.City
+IVE1.property=COUNTRY.COUNTRY_EN
+IVE1.value=USA
+ME2.element= Product
+ME3.element = PRODUCT_FORECAST.expected_volume
+PVE1.operand1= ME2
+PVE1.op = >
+PVE1.operand2= IVE2 
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+IVE3.property=BRANCH.CITY
+IVE3.value=Paris
+TF1.interval=[2019,2019]
+
+
+
+
+Category:comparison with explicit aggr
+Q. Which city has average unit cost of eyewear more than watches (SQLSig2)
+-> city, average, unit cost, eyewear, more than, watches
+-> ME1, Agg1, ME2, IVE1, PVE1, IVE2
+ME1.element=BRANCH.CITY
+Agg1.op = Average
+Agg1.operand = ME2
+ME2.element= PRODUCT_FORECAST.UNIT_COST
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.property=eyewear
+PVE1.operand1= ME2
+PVE1.op = >
+PVE1.operand2= IVE2 
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=watch
+
+
+Q. Name those cities with maximum unit cost of eyewear less than watches (SQLSig2)
+-> city, maximum, unit cost, eyewear, less than, watches
+-> ME1, Agg1, ME2, IVE1, PVE1, IVE2
+ME1.element=BRANCH.CITY
+Agg1.op = Maximum
+Agg1.operand = ME2
+ME2.element= PRODUCT_FORECAST.UNIT_COST
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.property=eyewear
+PVE1.operand1= ME2
+PVE1.op = >
+PVE1.operand2= IVE2 
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=watch
+
+Q.Which cities in France has minimum unit cost of eyewear less than watches (SQLSig2->SQLSig2B)
+-> cities, France, minimum, unit cost, eyewear, less than, watches
+-> ME1, IVE1, Agg1, ME2, IVE2, PVE1, IVE3
+ME1.element=BRANCH.CITY
+IVE1.property=COUNTRY.COUNTRY_EN
+IVE1.value=France
+Agg1.op = Maximum
+Agg1.operand = ME2
+ME2.element= PRODUCT_FORECAST.UNIT_COST
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+PVE1.operand1= ME2
+PVE1.op = >
+PVE1.operand2= IVE2 
+IVE3.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE3.value=watch
+
+
+
+Category:comparison with implicit count
+Q.which brands have more products than Mountain Man (SQLSig3)
+-> brands, more, products, than, Mountain Man
+-> ME1, PVE1, ME2, PVE1, IVE1
+ME1.element= PRODUCT_BRAND
+ME2.element= PRODUCT
+IVE1.property = PRODUCT_BRAND.BRAND_EN
+IVE1.value = Mountain Man
+PVE1.op= >
+PVE1.operand1= ME2
+PVE1.operand2 = IVE1
+
+Q.which products have more inventory branches than eyewears (SQLSig3)
+-> products, more, inventory branches, than, eyewears
+-> ME1, PVE1, ME2, PVE1, IVE1
+ME1.element= PRODUCT
+ME2.element= Inventory->Branch
+PVE1.op= >
+PVE1.operand1=ME2
+PVE1.operand2=IVE1
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+
+Q.List all those brands which has more inventory branches than Mountain Main (SQLSig3)
+-> brand, more, inventory branches, than, Mountain Man
+-> ME1, PVE1, ME2, PVE1, IVE1
+ME1.element= PRODUCT_BRAND
+ME2.element= Inventory->Branch
+PVE1.op= >
+PVE1.operand1=ME2
+PVE1.operand2=IVE1
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Mountain Man
+
+Q.Which cities has more Polar inventory branches than in Paris (SQLSIG3B) (EXTRA IVE Polar)
+-> cities, more, Polar, inventory branches, than, paris
+-> ME1, PVE1, IVE1, ME2, PVE1, IVE2
+ME1.element = BRANCH.CITY
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+PVE1.op= > 
+PVE1.operand1= ME2
+PVE1.operand2= IVE2
+ME2.element= Inventory->Branch
+IVE2.property=BRANCH.city
+IVE2.value=Paris
+
+Q.Which cities has more Polar inventory branches than in paris in 2019 (SQLSIG3C) (EXTRA IVE Polar, Time)
+-> cities, more, Polar, inventory branches, than, paris, in 2019
+-> ME1, PVE1, IVE1, ME2, PVE1, IVE2, TF1
+ME1.element = BRANCH.CITY
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+PVE1.op= > 
+PVE1.operand1= ME2
+PVE1.operand2= IVE2
+ME2.element= Inventory->Branch
+IVE2.property=BRANCH.city
+IVE2.value=Paris
+TF1.interval =[2019,2019]
+
+
+category: Comparison between Implicit aggr
+Q. How does the expected volume of eyewear sales compares between Paris and Toronto (SQLSig4)
+-> expected volume, eyewear, compares, Paris, Toronto
+-> ME1, IVE1, CE1, IVE2, IVE3 
+ME1.element = PRODUCT_FORECAST.expected_volume
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+IVE2.property=BRANCH.CITY
+IVE2.value=Paris
+IVE3.property=BRANCH.CITY
+IVE3.value=Toronto
+
+Q. Compare the expected volume of Polar eyewear sales between Paris and Toronto (SQLSig4B)
+-> Compare, expected volume, Polar, eyewear, Paris, Toronto
+-> CE1, ME1, IVE1, IVE2, IVE3, IVE4
+ME1.element = PRODUCT_FORECAST.expected_volume
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.property=eyewear
+IVE3.property=BRANCH.CITY
+IVE3.value=Paris
+IVE4.property=BRANCH.CITY
+IVE4.value=Toronto
+
+
+Q. show the expected volume comparison of eyewear sales between Paris and Toronto in 2019 (SQLSig4C)
+-> expected volume, comparison, eyewear, Paris, Toronto in 2019
+-> ME1, CE1, IVE1, IVE2, IVE3, TF1
+ME1.element = PRODUCT_FORECAST.expected_volume
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.property=eyewear
+IVE2.property=BRANCH.CITY
+IVE2.value=Paris
+IVE3.property=BRANCH.CITY
+IVE3.value=Toronto
+TF1.interval=[2019,2019]
+
+
+Category: Comparison between explicit aggr
+Compare the average unit cost of eyewear sales between Paris and Toronto (SQLSig5)-> collides with SQLSig4
+-> Compare, average, unit cost, eyewear, Paris, Toronto
+-> CE1, Agg1, ME1, IVE1, IVE2, IVE3
+ME1.element = PRODUCT_FORECAST.unit cost
+Agg1.op ="Average"
+Agg1.operand1=ME1
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.property=eyewear
+IVE2.property=BRANCH.CITY
+IVE2.value=Paris
+IVE3.property=BRANCH.CITY
+IVE3.value=Paris
+
+
+Q.What is the unit price for each product type in Paris ? (SQLSig5B)
+-> unit price, for each product, Paris
+-> ME1, GB1, IVE1
+ME1.element = PRODUCT_FORECAST.unit cost
+GB1.element= PRODUCT_TYPE
+IVE1.property=BRANCH.CITY
+IVE1.value=Paris
+
+Q.What is the unit price for each product type of Polar in Paris ? (SQLSig5C)
+-> unit price, for each product type, Polar, Paris
+-> ME1, GB1, IVE1, IVE2
+ME1.element = PRODUCT_FORECAST.unit price
+GB1.element= PRODUCT_TYPE
+IVE1.property = PRODUCT_BRAND.BRAND_EN
+IVE1.value = Polar
+IVE2.property=BRANCH.CITY
+IVE2.value=Paris
+
+
+Category: Numeric Comparison between subqueries
+Q.Which brands have more sales target than polar ? (SQLSig6)
+-> brands, more, sales target, than, polar
+-> ME1, PVE1, ME2, PVE1, IVE1
+ME1.element= PRODUCT_BRAND
+ME2.element = SALES_TARGET.SALES_TARGET
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+PVE1.op= >
+PVE1.operand1=ME2
+PVE1.operand2=IVE1
+
+
+Q.WHich brands in Paris have more sales target than polar ? (SQLSig6B)
+-> brands, Paris, more, sales target, than, Polar
+-> ME1, IVE1, PVE1, ME2, PVE1, IVE2
+ME1.element= PRODUCT_BRAND
+ME2.element = SALES_TARGET.SALES_TARGET
+IVE1.property=BRANCH.City
+IVE1.value=Paris
+PVE1.op= >
+PVE1.operand1=ME2
+PVE1.operand2=IVE2
+IVE2.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE2.value=Polar
+
+
+Q.For eyewear sales which brands in Paris have more sales target than Polar in 2019 ? (SQLSig6B)
+-> eyewear, brands, Paris, more, sales target, than, Polar, in 2019
+-> IVE1, ME1, IVE2, PVE1, ME2, PVE1, IVE3, TF1
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+ME1.element= PRODUCT_BRAND
+IVE2.property=BRANCH.City
+IVE2.value=Paris
+ME2.element = SALES_TARGET.SALES_TARGET
+IVE3.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE3.value=Polar
+PVE1.op= >
+PVE1.operand1=ME2
+PVE1.operand2=IVE3
+TF1.interval =[2019,2019]
+
+
+Category: Difference between numeric entities
+Q.What is the diferrence between unit cost and unit price for polar eyewear (SQLSig7)
+-> difference, unit cost, unit price, polar, eyewear
+-> ADE1, ME1, ME2, IVE1, IVE2
+ADE1.operand1=ME1
+ADE1.operand2=ME2
+ME1.element= PRODUCT_FORECAST.unit_cost
+ME2.element= PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+
+Q.In 2019, how much is the difference between unit cost and unit price for polar eyewear (SQLSig7B)
+-> in 2019, difference, unit cost, unit price, polar , eyewear
+-> TF1, ADE1, ME1, ME2, IVE1, IVE2
+ADE1.operand1=ME1
+ADE1.operand2=ME2
+ME1.element= PRODUCT_FORECAST.unit_cost
+ME2.element= PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+TF1.interval =[2019,2019]
+
+Q.how much is the difference between unit cost and unit price for polar eyewear in paris in 2019 (SQLSig7B)
+->  difference, unit cost, unit price, polar , eyewear, paris, in 2019
+-> ADE1, ME1, ME2, IVE1, IVE2, IVE3, TF1
+ADE1.operand1=ME1
+ADE1.operand2=ME2
+ME1.element= PRODUCT_FORECAST.unit_cost
+ME2.element= PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+IVE3.property=BRANCH.City
+IVE3.value=Paris
+TF1.interval =[2019,2019]
+
+Q.for each brand of eyewear in paris, the difference between unit cost and unit price in 2019 (SQLSig7C)
+-> for each brand, eyewear, paris, difference, unit cost, unit price, in 2019
+-> GB1, IVE1, IVE2, ADE1, ME1, ME2, TF1
+GB1.element=PRODUCT_BRAND
+ADE1.operand1=ME1
+ADE1.operand2=ME2
+ME1.element= PRODUCT_FORECAST.unit_cost
+ME2.element= PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+IVE2.property=BRANCH.City
+IVE2.value=Paris
+TF1.interval =[2019,2019]
+
+Category: Timebased Growth of explicit aggregation
+Q.How much has the average unit price grown for polar eyewears this year compared to last year? (SQLSig8)
+-> average, unit price, grown, polar, eyewears, this year, last year
+-> Agg1, ME1, AGE1, IVE1, IVE2, TF1, TF2
+Agg1.op = "Average"
+Agg1.operand=ME1
+ME.element=PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+TF1.interval =[2019,2019]
+TF2.interval =[2018,2018]
+AGE1.onNumeric=ME1
+AGE1.time1= TF1
+AGE1.time2=TF2
+
+
+Q.How much has the maximum unit price grown for Mountain Man watches in 2019 compared to 2016? (SQLSig8B)
+-> maximum, unit price, grown, Mountain Man, watches, in 2019, 2016
+-> Agg1, ME1, AGE1, IVE1, IVE2, TF1, TF2
+Agg1.op = "Maximum"
+Agg1.operand=ME1
+ME1.element=PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Mountain Man
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=watch
+TF1.interval =[2019,2019]
+TF2.interval =[2016,2016]
+AGE1.onNumeric=ME1
+AGE1.time1= TF1
+AGE1.time2=TF2
+
+Q.for each brand of eyewear sales, how much has the minimum unit cost grown in from 2016 to 2019 (SQLSig8C)
+-> for each brand, eyewear, minimum, unit cost, grown, from 2016, to 2019
+-> GB1, IVE1, Agg1, ME1, AGE1, TF1, TF2
+GB1.element=PRODUCT_BRAND
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+Agg1.op = "Minimum"
+Agg1.operand=ME1
+ME1.element=PRODUCT_FORECAST.unit_cost
+TF1.interval =[2019,2019]
+TF2.interval =[2016,2016]
+AGE1.onNumeric=ME1
+AGE1.time1= TF1
+AGE1.time2=TF2
+
+
+
+Category: Mathematical operation (Max- Min)
+Q.What is the range of unit price for eyewears by Polar (SQLSig9)
+-> range, unit price, eyewears, Polar
+-> ARE1, ME1, IVE1, IVE2
+ARE1.onNumeric=ME1
+ME1.element=PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+IVE2.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE2.value=Polar
+
+Q.Show me the range of unit cost for eyewears by Polar in Paris in 2019 (SQLSig9B)
+-> range, unit cost, eyewears, polar, paris, in 2019
+-> ARE1, ME1, IVE1, IVE2, IVE3, TF1
+ARE1.onNumeric=ME1
+ME1.element=PRODUCT_FORECAST.unit_price
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+IVE2.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE2.value=Polar
+IVE3.property=BRANCH.CITY
+IVE3.value=Paris
+TF1.interval =[2019,2019]
+
+
+Q.For each brand with eyewears in Paris, what is range of unit cost in 2019  (SQLSig9C)
+-> for each brand, eyewears, Paris, range, unit cost, in 2019
+-> GB1, IVE1, IVE2, ARE1, ME1, TF1
+GB1.element=PRODUCT_BRAND
+IVE1.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE1.value=eyewear
+IVE2.property=BRANCH.CITY
+IVE2.value=Paris
+ARE1.onNumeric=ME1
+ME1.element=PRODUCT_FORECAST.unit_price
+TF1.interval =[2019,2019]
+
+Category: Percentage 
+
+Q.What is the percentage of total expected volume of polar eyewear sales in Paris in 2019 ?(SQLSig10)
+-> percentage, total, expected volume, polar, eyewear, Paris, in 2019
+-> APE1, Agg1, ME1, IVE1, IVE2, IVE3, TF1
+IVE1.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE1.value=Polar
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+IVE3.property=BRANCH.CITY
+IVE3.value=Paris
+ME1.element=PRODUCT_FORECAST.expected_volume
+Agg1.op = "SUM"
+Agg1.operand=ME1
+== don't consider
+#APE1.onNumeric=Agg1
+#APE1.ofEntity=IVE1
+(SQLQuery should give out that IVE1 is being used to differentiate numerator vs denomenitaor)
+
+Q.How much percentage of total quantity shipped is from Paris for polar eyewear ?
+-> percentage, total, quantity shipped, paris, polar, eyewear
+-> APE1, Agg1, ME1, IVE1, IVE2, IVE3
+IVE1.property=BRANCH.CITY
+IVE1.value=Paris
+IVE2.property=PRODUCT_BRAND.PRODUCT_BRAND_EN
+IVE2.value=Polar
+IVE3.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE3.value=eyewear
+ME1.element=PRODUCT_FORECAST.quantity_shipped
+Agg1.op = "SUM"
+Agg1.operand=ME1
+== don't consider the below
+#APE1.onNumeric=Agg1
+#APE1.ofEntity=IVE1
+
+
+Q.For each city in France, what is the percentage of average quantity shipped of eyewear in 2019 ? (SQLSig11) (percentahe in groupBy)
+-> for each city, France, percentage, average, quantity shipped, eyewear, in 2019
+-> GB1, IVE1, APE1, Agg1, ME1, IVE2, TF1
+GB1.element =BRANCH.CITY
+IVE1.property=COUNTRY.COUNTRY_EN
+IVE1.value=France
+ME1.element=PRODUCT_FORECAST.quantity_shipped
+Agg1.op = "Average"
+Agg1.operand=ME1
+IVE2.property=PRODUCT_TYPE.PRODUCT_TYPE_EN
+IVE2.value=eyewear
+== don't consider the below
+APE1.onNumeric=Agg1
+APE1.ofEntity=GB1
+
+
+
+
+
+=========================================
+1. Take 1st query from each SQLSig class as input
+	-> 11 signatures
+2. use the other queries to test if your code is able to predict the right class
+	--> 22 other queries speread across these 11 classes 
+	--> the alphabet suffixes like A,B,C means they should match to the parent signature
+		--> i.e. queries marked with SQLSig1B,SQLSig1C etc should be identifed as from SQLSig1 by matching algo.   
+
+
+
+SQLSig1 -> ME1, PVE1, ME2, PVE1, IVE1
+SQLSig2 -> ME1, Agg1, ME2, IVE1, PVE1, IVE2
+SQLSig3 -> ME1, PVE1, ME2, PVE1, IVE1
+SQLSig4 -> ME1, IVE1, GB1 
+SQLSig5 -> ME1, GB1, IVE1
+SQLSig6-> ME1, PVE1, ME2, PVE1, IVE1
+SQLSig7-> ADE1, ME1, ME2, IVE1, IVE2
+SQLSig8-> Agg1, ME1, AGE1, IVE1, IVE2, TF1, TF2
+SQLSig9-> ARE1, ME1, IVE1, IVE2
+SQLSig10-> APE1, Agg1, ME1, IVE1, IVE2, IVE3, TF1
+SQLSig11-> GB1, IVE1, APE1, Agg1, ME1, IVE2, TF1
+
+
+Collisions
+SQLSig1,SQLSig3,SQLSig6 -> Rought Set to introduce ME.measureForConcept (=yes for 1,=no for 3),ME.isNumericProperty(=yes for 6, =no for 1,3)
+SQLSig4,SQLSig5-> Rought Set to introduce ME.measureForConcept(=yes for 4, =no for 5)
+SQLSig10,SQLSig11 -> RoughtSet to introduce Q.hasGB(=yes for 11, =no for 10)
+
+
+
+
+
+
+
+
+

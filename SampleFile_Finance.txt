@@ -1,0 +1,347 @@
+Extended Features Space for Computing Rough Set
+ME.keyForConcept ME.measureForConcept ME.keyForProperty ME.measureForProperty ME.defaulttimeForConcept ME.defaulttimeForProperty
+
+
+
+Configurations for Ontology Concepts
+
+1. Key Properties
+	a. ListedSecurity->ListedSecurity.hasTickerSymbol
+	b. Investor-> Investor.name
+	c. IndustrySectorClassifier->{IndustrySectorClassifier.hasNumericCode,IndustrySectorClassifier.hasUniqueIdentifier,IndustrySectorClassifier.hasFormalName,IndustrySectorClassifier.hasDescription}
+	d. Manager->Manager.hasPersonName
+	e. FinancialServiceAccount->FinancialServiceAccount.hasAccountNumber
+
+2.Defaulttime
+	a. SecuritiesTransaction-> hasSettlementDate
+
+
+3. Measure
+	a. ListedSecurity: SecuritiesTransaction.hasCount
+	b. SecuritiesTransaction: SecuritiesTransaction.hasCount
+
+
+Example Terminologies
+ME- ModelEntity i.e. Ontology matches
+PVE : Numeric Comparison (e.g. age more than 30)
+IVE: Data index match
+
+
+Abhinav's Input
+Static input: 
+	An Ontology -> [Concepts Properties, Relation, synonyms, configurations]
+	titable.txt -> 
+NL query query
+Output: Annotations and their individual data structures
+
+1. which stocks has more last treaded value than Alphabet 
+ -> ME1 PVE1 ME2 PVE1 IVE1 => SemSIG1
+ -> stocks, more, last treaded value, than, Alphabet
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {'ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC'}
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+
+ SQL: SELECT oMonetaryAmount.hasAmount AS oMonetaryAmount_hasAmount, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName FROM FIBO_FRO_8A.ListedSecurity oListedSecurity INNER JOIN FIBO_FRO_8A.MonetaryAmount oMonetaryAmount ON oListedSecurity.hasLastTradedValue=oMonetaryAmount.monetaryamountId WHERE oMonetaryAmount.hasAmount > (SELECT Min(oInnerMonetaryAmount.hasAmount) AS Min_oInnerMonetaryAmount_hasAmount FROM FIBO_FRO_8A.ListedSecurity oInnerListedSecurity INNER JOIN FIBO_FRO_8A.MonetaryAmount oInnerMonetaryAmount ON oInnerListedSecurity.hasLastTradedValue=oInnerMonetaryAmount.monetaryamountId INNER JOIN FIBO_FRO_8A.Security Security1 ON oInnerListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oInnerCorporation ON Security1.isProvidedBy=oInnerCorporation.corporationId WHERE oInnerCorporation.hasLegalName IN ('ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' )) FETCH FIRST 1000 ROWS ONLY
+
+ SemSIG1: SELECT ME2 , ME1.key FROM ME1.concept, ME2.concept... Where ME2 > (SELECT MIN(ME2) FROM ME1.concept, ME2.concept...INNER JOIN (...) WHERE IVE1.prop IN IVE1.Values ) FETCH FIRST 1000 rows 
+
+2. Find all stocks having last treaded value more than Microsoft's?
+ -> ME1 ME2 PVE1 IVE1 -> SemSIG1 
+ -> stocks, last treaded value, more than, Microsoft, in 2018
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value =  'MICROSOFT CORP'
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+ SELECT oMonetaryAmount.hasAmount AS oMonetaryAmount_hasAmount, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName FROM FIBO_FRO_8A.ListedSecurity oListedSecurity INNER JOIN FIBO_FRO_8A.MonetaryAmount oMonetaryAmount ON oListedSecurity.hasLastTradedValue=oMonetaryAmount.monetaryamountId WHERE oMonetaryAmount.hasAmount > (SELECT Min(oInnerMonetaryAmount.hasAmount) AS Min_oInnerMonetaryAmount_hasAmount FROM FIBO_FRO_8A.ListedSecurity oInnerListedSecurity INNER JOIN FIBO_FRO_8A.MonetaryAmount oInnerMonetaryAmount ON oInnerListedSecurity.hasLastTradedValue=oInnerMonetaryAmount.monetaryamountId INNER JOIN FIBO_FRO_8A.Security Security1 ON oInnerListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oInnerCorporation ON Security1.isProvidedBy=oInnerCorporation.corporationId WHERE oInnerCorporation.hasLegalName = 'MICROSOFT CORP') FETCH FIRST 1000 ROWS ONLY"
+
+ 
+3. For each industry list those stocks having last treaded value less than Alphabet ?
+-> GB1 ME1 ME2 PVE1 IVE1 -> SemSIG2 (should match to) -> SemSIG1
+-> For each industry, stocks, last treaded value, less than, Alphabet
+ GB1.Element = IndustrySectorClassifier
+ ME1.Element = ListedSecurity
+ ME2.Element =  MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {'ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' }
+ PVE1.operand1=ME2
+ PVE1.op = <
+ PVE1.operand2= IVE1
+
+ SELECT oMonetaryAmount.hasAmount AS oMonetaryAmount_hasAmount, oIndustrySectorClassifier.hasNumericCode AS oIndustrySectorClassifier_hasNumericCode, oIndustrySectorClassifier.hasUniqueIdentifier AS oIndustrySectorClassifier_hasUniqueIdentifier, oIndustrySectorClassifier.hasFormalName AS oIndustrySectorClassifier_hasFormalName, oIndustrySectorClassifier.hasDescription AS oIndustrySectorClassifier_hasDescription, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName FROM FIBO_FRO_8A.MonetaryAmount oMonetaryAmount INNER JOIN FIBO_FRO_8A.ListedSecurity oListedSecurity ON oMonetaryAmount.monetaryamountId=oListedSecurity.hasLastTradedValue INNER JOIN FIBO_FRO_8A.Security Security1 ON oListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation Corporation1 ON Security1.isProvidedBy=Corporation1.corporationId INNER JOIN FIBO_FRO_8A.IndustrySectorClassifier oIndustrySectorClassifier ON Corporation1.isClassifiedBy=oIndustrySectorClassifier.industrysectorclassifierId WHERE oMonetaryAmount.hasAmount < (SELECT Max(oInnerMonetaryAmount.hasAmount) AS Max_oInnerMonetaryAmount_hasAmount FROM FIBO_FRO_8A.MonetaryAmount oInnerMonetaryAmount INNER JOIN FIBO_FRO_8A.ListedSecurity oInnerListedSecurity ON oInnerMonetaryAmount.monetaryamountId=oInnerListedSecurity.hasLastTradedValue INNER JOIN FIBO_FRO_8A.Security Security1 ON oInnerListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oInnerCorporation ON Security1.isProvidedBy=oInnerCorporation.corporationId WHERE oInnerCorporation.hasLegalName IN ('ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' )) ORDER BY oIndustrySectorClassifier.hasUniqueIdentifier ASC FETCH FIRST 1000 ROWS ONLY
+
+
+4. Find stocks by industry which are having more last treaded value than Alphabet ?
+-> ME1 GB1 PVE1 ME2 PVE1 IVE1 -> SemSIG2 (should match to) -> SemSIG1
+-> stocks, by industry, more , last treaded value, than, Alphabet
+ GB1.Element = IndustrySectorClassifier
+ ME1.Element = ListedSecurity
+ ME2.Element = MoneytaryAmount.hasAmount
+ IVE1.property = Corporation.hasLegalName
+ IVE1.value = {'ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' }
+ PVE1.operand1=ME2
+ PVE1.op = >
+ PVE1.operand2= IVE1
+
+SELECT oMonetaryAmount.hasAmount AS oMonetaryAmount_hasAmount, oIndustrySectorClassifier.hasNumericCode AS oIndustrySectorClassifier_hasNumericCode, oIndustrySectorClassifier.hasUniqueIdentifier AS oIndustrySectorClassifier_hasUniqueIdentifier, oIndustrySectorClassifier.hasFormalName AS oIndustrySectorClassifier_hasFormalName, oIndustrySectorClassifier.hasDescription AS oIndustrySectorClassifier_hasDescription, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName FROM FIBO_FRO_8A.MonetaryAmount oMonetaryAmount INNER JOIN FIBO_FRO_8A.ListedSecurity oListedSecurity ON oMonetaryAmount.monetaryamountId=oListedSecurity.hasLastTradedValue INNER JOIN FIBO_FRO_8A.Security Security1 ON oListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation Corporation1 ON Security1.isProvidedBy=Corporation1.corporationId INNER JOIN FIBO_FRO_8A.IndustrySectorClassifier oIndustrySectorClassifier ON Corporation1.isClassifiedBy=oIndustrySectorClassifier.industrysectorclassifierId WHERE oMonetaryAmount.hasAmount > (SELECT Max(oInnerMonetaryAmount.hasAmount) AS Max_oInnerMonetaryAmount_hasAmount FROM FIBO_FRO_8A.MonetaryAmount oInnerMonetaryAmount INNER JOIN FIBO_FRO_8A.ListedSecurity oInnerListedSecurity ON oInnerMonetaryAmount.monetaryamountId=oInnerListedSecurity.hasLastTradedValue INNER JOIN FIBO_FRO_8A.Security Security1 ON oInnerListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oInnerCorporation ON Security1.isProvidedBy=oInnerCorporation.corporationId WHERE oInnerCorporation.hasLegalName IN ('ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' )) ORDER BY oIndustrySectorClassifier.hasUniqueIdentifier ASC FETCH FIRST 1000 ROWS ONLY
+
+5. Find all managers managing more accounts than Kristina Early ?
+-> ME1 PVE1 ME2 PVE1 IVE1 -> SemSIG3
+-> managers, more, accounts, than, Krista Early
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=AccountManager.Name
+IVE1.value = Krista Earley
+PVE1.operand1=ME2
+pve1.op= > 
+pve1.operand2= IVE1
+
+
+SELECT COUNT(oFinancialServiceAccount.hasAccountNumber) AS AggResult1, oManager.hasPersonName AS oPerson_hasPersonName FROM FIBO_FRO_8A.FinancialServiceAccount oFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oPerson ON oFinancialServiceAccount.isManagedBy=oManager.personId GROUP BY oManager.hasPersonName HAVING COUNT(oFinancialServiceAccount.hasAccountNumber) > (SELECT COUNT(oInnerFinancialServiceAccount.hasAccountNumber) AS InnerAggResult1 FROM FIBO_FRO_8A.FinancialServiceAccount oInnerFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON oInnerFinancialServiceAccount.isManagedBy=oInnerManager.personId WHERE oInnerManager.hasPersonName = 'Krista Earley' ) FETCH FIRST 1000 ROWS ONLY
+
+
+6. Which managers managed less accounts than Krista Early ?
+-> ME1 PVE1 ME2 PVE1  IVE1 -> SemSIG3
+-> managers, less, accounts, than, Kristina Early
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=AccountManager.Name
+IVE1.value = Kristina K. Early
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE1
+
+SELECT COUNT(oFinancialServiceAccount.hasAccountNumber) AS AggResult1, oManager.hasPersonName AS oPerson_hasPersonName FROM FIBO_FRO_8A.FinancialServiceAccount oFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oPerson ON oFinancialServiceAccount.isManagedBy=oManager.personId GROUP BY oManager.hasPersonName HAVING COUNT(oFinancialServiceAccount.hasAccountNumber) < (SELECT COUNT(oInnerFinancialServiceAccount.hasAccountNumber) AS InnerAggResult1 FROM FIBO_FRO_8A.FinancialServiceAccount oInnerFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON oInnerFinancialServiceAccount.isManagedBy=oInnerManager.personId WHERE oInnerManager.hasPersonName = 'Krista Earley' ) FETCH FIRST 1000 ROWS ONLY
+
+
+
+7. For each state list all managers who managed less accounts than Kristina Early ?
+-> GB1 ME1 PVE1 ME2 PVE1 IVE1 -> SemSIG4A -> (should match to) SemSIG3
+-> for each state, managers, less, accounts, than, Kristina Early
+GB1.Element = PostalAddress.hasState
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=AccountManager.Name
+IVE1.value = Krista Early
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE1
+
+SELECT COUNT(oFinancialServiceAccount.hasAccountNumber) AS AggResult1, oManager.hasPersonName AS oPerson_hasPersonName, PostalAddress.hasState AS oPostalAddress.hasState FROM FIBO_FRO_8A.FinancialServiceAccount oFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oPerson ON oFinancialServiceAccount.isManagedBy=oManager.personId INNER JOIN FIBO_FRO_8A.PostalAddress oPostalAddress ON oManager.livesIn=oPostalAddress.Id GROUP BY oManager.hasPersonName, oPostalAddress.hasState HAVING COUNT(oFinancialServiceAccount.hasAccountNumber) < (SELECT COUNT(oInnerFinancialServiceAccount.hasAccountNumber) AS InnerAggResult1 FROM FIBO_FRO_8A.FinancialServiceAccount oInnerFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON oInnerFinancialServiceAccount.isManagedBy=oInnerManager.personId WHERE oInnerManager.hasPersonName = 'Krista Earley' ) FETCH FIRST 1000 ROWS ONLY
+
+8. list all managers in Nevada by each city who managed less accounts than Kristina Early ?
+-> ME1 IVE1 GB1 PVE1 ME2 PVE1 IVE2 -> SemSIG4B -> (should match to) SemSIG3
+-> managers, California, by each city, less, accounts, than, Kristina Early 
+GB1.Element = PostalAddress.hasCity
+ME1.element = AccountManager
+ME2=FinancialServiceAccount
+IVE1.property=PostalAddress.hasState
+IVE1.value = California
+IVE2.property=AccountManager.Name
+IVE2.value = Kristina K. Early
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE2
+
+SELECT COUNT(oFinancialServiceAccount.hasAccountNumber) AS AggResult1, oManager.hasPersonName AS oPerson_hasPersonName, PostalAddress.hasCity AS oPostalAddress.hasState FROM FIBO_FRO_8A.FinancialServiceAccount oFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oPerson ON oFinancialServiceAccount.isManagedBy=oManager.personId INNER JOIN FIBO_FRO_8A.PostalAddress oPostalAddress ON oManager.livesIn=oPostalAddress.Id WHERE oPostalAddress = 'California' GROUP BY oManager.hasPersonName, oPostalAddress.hasCity HAVING COUNT(oFinancialServiceAccount.hasAccountNumber) < (SELECT COUNT(oInnerFinancialServiceAccount.hasAccountNumber) AS InnerAggResult1 FROM FIBO_FRO_8A.FinancialServiceAccount oInnerFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON oInnerFinancialServiceAccount.isManagedBy=oInnerManager.personId WHERE oInnerManager.hasPersonName = 'Krista Earley' ) FETCH FIRST 1000 ROWS ONLY
+
+9. Which investors owns less accounts than Warren Buffet 
+-> ME1 PVE1 ME2 PVE1 IVE1 -> SemSIG3
+-> investors, less, accounts, than Warren Buffet
+-> ME2.hasMeasureForConcept=(No) PVE1 IVE1 -> SemSIG3_corrected
+ME1.element = Investor
+ME2=FinancialServiceAccount
+IVE1.property=Investor.Name
+IVE1.value = Warren E. Buffett
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE1
+
+SELECT COUNT(oFinancialServiceAccount.hasAccountNumber) AS AggResult1, oInvestor.hasPersonName AS oPerson_hasPersonName FROM FIBO_FRO_8A.FinancialServiceAccount oFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oPerson ON oFinancialServiceAccount.isManagedBy=oInvestor.personId GROUP BY oInvestor.hasPersonName HAVING COUNT(oFinancialServiceAccount.hasAccountNumber) < (SELECT COUNT(oInnerFinancialServiceAccount.hasAccountNumber) AS InnerAggResult1 FROM FIBO_FRO_8A.FinancialServiceAccount oInnerFinancialServiceAccount INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON oInnerFinancialServiceAccount.isManagedBy=oInnerInvestor.personId WHERE oInnerInvestor.hasPersonName = 'Warren E. Buffett' ) FETCH FIRST 1000 ROWS ONLY
+
+
+10A.Which investors bought more stocks than sold
+ME1 IVE1 PVE1 ME2 PVE1 IVE2 -> SemSIG3 -> needs correction
+ME1 IVE1 PVE1 ME2 ME2.hasMeasureForConcept=(yes) PVE1 IVE2 -> SemSIG-NEW = SemSIG5
+
+10.Which investors bought more IBM stocks than they sold 
+-> ME1 IVE1 PVE1 ME2 PVE1 IVE2 -> SemSIG3 -> needs correction
+-> ME1 IVE1 PVE1 IVE2 ME2 ME2.hasMeasureForConcept=(yes) PVE1 ME1 IVE3 -> SemSIG5
+-> investors, bought, more, IBM, stocks, than, they, sold
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 1
+IVE2.property=ListedSecurity.hasTickerSymbol
+IVE2.value = IBM
+IVE3.property=SecuritiesTransaction.hasType
+IVE3.value = 2
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE3
+
+SELECT Sum(oSecuritiesTransaction.hasCount) AS AggResult1, oInvestor.hasPersonName AS oPerson_hasPersonName, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName, oInvestor.PersonID AS oPerson_self FROM FIBO_FRO_8A.SecuritiesTransaction oSecuritiesTransaction INNER JOIN FIBO_FRO_8A.FinancialServiceAccount FinancialServiceAccount1 ON oSecuritiesTransaction.isFacilitatedBy=FinancialServiceAccount1.financialserviceaccountId INNER JOIN FIBO_FRO_8A.Person oPerson ON FinancialServiceAccount1.isOwnedBy=oInvestor.personId INNER JOIN FIBO_FRO_8A.ListedSecurity oListedSecurity ON oSecuritiesTransaction.refersTo=oListedSecurity.listedsecurityId WHERE oSecuritiesTransaction.hasType = '1' AND oListedSecurity.hasTickerSymbol = 'IBM' GROUP BY oInvestor.hasPersonName,oListedSecurity.hasTickerSymbol,oListedSecurity.hasLegalName,oInvestor.PersonID HAVING Sum(oSecuritiesTransaction.hasCount) > (SELECT Sum(oInnerSecuritiesTransaction.hasCount) AS AggResult1 FROM FIBO_FRO_8A.SecuritiesTransaction oInnerSecuritiesTransaction INNER JOIN FIBO_FRO_8A.FinancialServiceAccount FinancialServiceAccount1 ON oInnerSecuritiesTransaction.isFacilitatedBy=FinancialServiceAccount1.financialserviceaccountId INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON FinancialServiceAccount1.isOwnedBy=oInnerInvestor.personId INNER JOIN FIBO_FRO_8A.ListedSecurity oInnerListedSecurity ON oInnerSecuritiesTransaction.refersTo=oInnerListedSecurity.listedsecurityId WHERE oInnerListedSecurity.hasTickerSymbol = 'IBM' AND oInnerSecuritiesTransaction.hasType = '2' AND oInvestor.PersonID = oInnerInvestor.PersonID ) FETCH FIRST 1000 ROWS ONLY
+
+11. Find all investors who sold less Alphabet stocks than they bought
+-> ME1 IVE1 PVE1 IVE2 ME2 ME2.hasMeasureForConcept=(yes) PVE1 ME1 IVE2 -> SemSIG5
+-> investors, sold, less, Alphabet, stocks, than, they, bought
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=Corporation.hasLegalName
+IVE2.value = Alphabet Inc.
+IVE3.property=SecuritiesTransaction.hasType
+IVE3.value = 1
+PVE1.operand1=ME2
+pve1.op= <
+pve1.operand2= IVE3
+
+SELECT Sum(oSecuritiesTransaction.hasCount) AS AggResult1, oInvestor.hasPersonName AS oPerson_hasPersonName, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName, oInvestor.PersonID AS oPerson_self FROM FIBO_FRO_8A.SecuritiesTransaction oSecuritiesTransaction INNER JOIN FIBO_FRO_8A.ListedSecurity oListedSecurity ON oSecuritiesTransaction.refersTo=oListedSecurity.listedsecurityId INNER JOIN FIBO_FRO_8A.Security Security1 ON oListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oCorporation ON Security1.isProvidedBy=oCorporation.corporationId INNER JOIN FIBO_FRO_8A.Country Country1 ON oCorporation.isDomiciledIn=Country1.countryId INNER JOIN FIBO_FRO_8A.Person oPerson ON Country1.countryId=oInvestor.hasPlaceOfBirth WHERE oCorporation.hasLegalName IN ('ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' ) AND oSecuritiesTransaction.hasType = '2' GROUP BY oInvestor.hasPersonName,oListedSecurity.hasTickerSymbol,oListedSecurity.hasLegalName,oInvestor.PersonID HAVING Sum(oSecuritiesTransaction.hasCount) < (SELECT Sum(oInnerSecuritiesTransaction.hasCount) AS AggResult1 FROM FIBO_FRO_8A.SecuritiesTransaction oInnerSecuritiesTransaction INNER JOIN FIBO_FRO_8A.FinancialServiceAccount FinancialServiceAccount1 ON oInnerSecuritiesTransaction.isFacilitatedBy=FinancialServiceAccount1.financialserviceaccountId INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON FinancialServiceAccount1.isOwnedBy=oInnerInvestor.personId INNER JOIN FIBO_FRO_8A.ListedSecurity oInnerListedSecurity ON oInnerSecuritiesTransaction.refersTo=oInnerListedSecurity.listedsecurityId INNER JOIN FIBO_FRO_8A.Security Security1 ON oInnerListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oInnerCorporation ON Security1.isProvidedBy=oInnerCorporation.corporationId WHERE oInnerSecuritiesTransaction.hasType = '1' AND oInnerCorporation.hasLegalName IN ('ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC' ) AND oInvestor.PersonID = oInnerInvestor.PersonID ) FETCH FIRST 1000 ROWS ONLY
+
+
+12. Which investors sold more Microsoft Stocks than they bought in 2018
+-> ME1 IVE1 PVE1 IVE2 ME2 ME2.hasMeasureForConcept=(yes) PVE1 ME1 IVE2 TF1 -> SemSIG5
+
+-> investors, sold, more, microsoft, stocks, than, they, bought, in 2018
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=Corporation.hasLegalName
+IVE2.value = MICROSOFT CORP
+IVE3.property=SecuritiesTransaction.hasType
+IVE3.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE3
+TF1.interval [ 01-01-2018, 31-31-2018]
+
+SELECT Sum(oSecuritiesTransaction.hasCount) AS AggResult1, oInvestor.hasPersonName AS oPerson_hasPersonName, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName, oInvestor.PersonID AS oPerson_self FROM FIBO_FRO_8A.SecuritiesTransaction oSecuritiesTransaction INNER JOIN FIBO_FRO_8A.ListedSecurity oListedSecurity ON oSecuritiesTransaction.refersTo=oListedSecurity.listedsecurityId INNER JOIN FIBO_FRO_8A.Security Security1 ON oListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oCorporation ON Security1.isProvidedBy=oCorporation.corporationId INNER JOIN FIBO_FRO_8A.Country Country1 ON oCorporation.isDomiciledIn=Country1.countryId INNER JOIN FIBO_FRO_8A.Person oPerson ON Country1.countryId=oInvestor.hasPlaceOfBirth WHERE oCorporation.hasLegalName = 'MICROSOFT CORP' AND oSecuritiesTransaction.hasType = '2' AND oSecuritiesTransaction.hasSettlementDate >= '2018-01-01 00:00:00.000' AND oSecuritiesTransaction.hasSettlementDate <= '2018-12-31 23:59:00.000' GROUP BY oInvestor.hasPersonName,oListedSecurity.hasTickerSymbol,oListedSecurity.hasLegalName,oInvestor.PersonID HAVING Sum(oSecuritiesTransaction.hasCount) > (SELECT Sum(oInnerSecuritiesTransaction.hasCount) AS AggResult1 FROM FIBO_FRO_8A.SecuritiesTransaction oInnerSecuritiesTransaction INNER JOIN FIBO_FRO_8A.FinancialServiceAccount FinancialServiceAccount1 ON oInnerSecuritiesTransaction.isFacilitatedBy=FinancialServiceAccount1.financialserviceaccountId INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON FinancialServiceAccount1.isOwnedBy=oInnerInvestor.personId INNER JOIN FIBO_FRO_8A.ListedSecurity oInnerListedSecurity ON oInnerSecuritiesTransaction.refersTo=oInnerListedSecurity.listedsecurityId INNER JOIN FIBO_FRO_8A.Security Security1 ON oInnerListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation oInnerCorporation ON Security1.isProvidedBy=oInnerCorporation.corporationId WHERE oInnerSecuritiesTransaction.hasType = '1' AND oInnerCorporation.hasLegalName = 'MICROSOFT CORP' AND oInvestor.PersonID = oInnerInvestor.PersonID AND oInnerSecuritiesTransaction.hasSettlementDate >= '2018-01-01 00:00:00.000' AND oInnerSecuritiesTransaction.hasSettlementDate <= '2018-12-31 23:59:00.000' ) FETCH FIRST 1000 ROWS ONLY
+
+13. Find all investor sold more stocks than they bought in Jan 2018
+-> ME1 IVE1 PVE1 ME2 ME2.hasMeasureForConcept=(yes) PVE1 ME1 IVE1 TF1 -> SemSIG5
+-> persons, sold, more, stocks, then, they, bought, in Jan 2018
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+TF1.interval [ 01-01-2018, 31-01-2018]
+
+SELECT Sum(oSecuritiesTransaction.hasCount) AS AggResult1, oInvestor.hasPersonName AS oPerson_hasPersonName, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName, oInvestor.PersonID AS oPerson_self FROM FIBO_FRO_8A.SecuritiesTransaction oSecuritiesTransaction INNER JOIN FIBO_FRO_8A.FinancialServiceAccount FinancialServiceAccount1 ON oSecuritiesTransaction.isFacilitatedBy=FinancialServiceAccount1.financialserviceaccountId INNER JOIN FIBO_FRO_8A.Person oPerson ON FinancialServiceAccount1.isOwnedBy=oInvestor.personId INNER JOIN FIBO_FRO_8A.ListedSecurity oListedSecurity ON oSecuritiesTransaction.refersTo=oListedSecurity.listedsecurityId WHERE oSecuritiesTransaction.hasType = '2' AND oSecuritiesTransaction.hasSettlementDate >= '2018-01-01 00:00:00.000' AND oSecuritiesTransaction.hasSettlementDate <= '2018-01-31 23:59:00.000' GROUP BY oInvestor.hasPersonName,oListedSecurity.hasTickerSymbol,oListedSecurity.hasLegalName,oInvestor.PersonID HAVING Sum(oSecuritiesTransaction.hasCount) > (SELECT Sum(oInnerSecuritiesTransaction.hasCount) AS AggResult1 FROM FIBO_FRO_8A.SecuritiesTransaction oInnerSecuritiesTransaction INNER JOIN FIBO_FRO_8A.FinancialServiceAccount FinancialServiceAccount1 ON oInnerSecuritiesTransaction.isFacilitatedBy=FinancialServiceAccount1.financialserviceaccountId INNER JOIN FIBO_FRO_8A.Person oInnerPerson ON FinancialServiceAccount1.isOwnedBy=oInnerInvestor.personId INNER JOIN FIBO_FRO_8A.ListedSecurity oInnerListedSecurity ON oInnerSecuritiesTransaction.refersTo=oInnerListedSecurity.listedsecurityId WHERE oInnerSecuritiesTransaction.hasType = '1' AND oInvestor.PersonID = oInnerInvestor.PersonID AND oInnerSecuritiesTransaction.hasSettlementDate >= '2018-01-01 00:00:00.000' AND oInnerSecuritiesTransaction.hasSettlementDate <= '2018-01-31 23:59:00.000' ) FETCH FIRST 1000 ROWS ONLY
+
+14. By each industry, list all investor who sold more stocks than they bought in 2018 ?
+
+-> GB1 ME1 IVE1 PVE1 ME2 ME2.hasMeasureForConcept=(yes) PVE1 ME1 IVE2 TF1 -> SemSIG6 -> (should match to) SemSIG5
+-> By each industry, executives, sold, more, stocks, than, they, bought, in 2018
+
+GB1.element=Industry
+ME1.element = Investor
+ME2=ListedSecurity
+IVE1.property=SecuritiesTransaction.hasType
+IVE1.value = 2
+IVE2.property=SecuritiesTransaction.hasType
+IVE2.value = 1
+PVE1.operand1=ME2
+pve1.op= >
+pve1.operand2= IVE2
+TF1.interval [ 01-01-2018, 31-01-2018]
+
+
+SELECT Sum(oSecuritiesTransaction.hasCount) AS AggResult1, oInvestor.hasPersonName AS oPerson_hasPersonName, oListedSecurity.hasTickerSymbol AS oListedSecurity_hasTickerSymbol, oListedSecurity.hasLegalName AS oListedSecurity_hasLegalName, oIndustrySectorClassifier.hasNumericCode AS oIndustrySectorClassifier_hasNumericCode, oIndustrySectorClassifier.IndustrySectorClassifierID AS oIndustrySectorClassifier_self FROM FIBO_FRO_8A.ListedSecurity oListedSecurity INNER JOIN FIBO_FRO_8A.SecuritiesTransaction oSecuritiesTransaction ON oListedSecurity.listedsecurityId=oSecuritiesTransaction.refersTo INNER JOIN FIBO_FRO_8A.Security Security1 ON oListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation Corporation1 ON Security1.isProvidedBy=Corporation1.corporationId INNER JOIN FIBO_FRO_8A.IndustrySectorClassifier oIndustrySectorClassifier ON Corporation1.isClassifiedBy=oIndustrySectorClassifier.industrysectorclassifierId WHERE oSecuritiesTransaction.hasType = '2' AND oSecuritiesTransaction.hasSettlementDate >= '2018-01-01 00:00:00.000' AND oSecuritiesTransaction.hasSettlementDate <= '2018-12-31 23:59:00.000' GROUP BY oInvestor.hasPersonName, oListedSecurity.hasTickerSymbol,oListedSecurity.hasLegalName,oIndustrySectorClassifier.hasNumericCode,oIndustrySectorClassifier.IndustrySectorClassifierID HAVING Sum(oSecuritiesTransaction.hasCount) > (SELECT Sum(oInnerSecuritiesTransaction.hasCount) AS AggResult1 FROM FIBO_FRO_8A.ListedSecurity oInnerListedSecurity INNER JOIN FIBO_FRO_8A.SecuritiesTransaction oInnerSecuritiesTransaction ON oInnerListedSecurity.listedsecurityId=oInnerSecuritiesTransaction.refersTo INNER JOIN FIBO_FRO_8A.Security Security1 ON oInnerListedSecurity.listedsecurityId=Security1.securityId INNER JOIN FIBO_FRO_8A.Corporation Corporation1 ON Security1.isProvidedBy=Corporation1.corporationId INNER JOIN FIBO_FRO_8A.IndustrySectorClassifier oInnerIndustrySectorClassifier ON Corporation1.isClassifiedBy=oInnerIndustrySectorClassifier.industrysectorclassifierId WHERE oInnerSecuritiesTransaction.hasType = '1' AND oIndustrySectorClassifier.IndustrySectorClassifierID = oInnerIndustrySectorClassifier.IndustrySectorClassifierID AND oInnerSecuritiesTransaction.hasSettlementDate >= '2018-01-01 00:00:00.000' AND oInnerSecuritiesTransaction.hasSettlementDate <= '2018-12-31 23:59:00.000' ) FETCH FIRST 1000 ROWS ONLY
+
+
+15. what is the average transaction value of Alphabet in 2019 
+-> Agg1, ME1, IVE1, TF1 -> SemSIG7 
+-> average, transaction value, Alphabet, in 2019
+Agg1.op = "average"
+Agg1.op = ME1
+ME1.element = SecuritiesTransaction.value, 
+IVE1.property = Corporation.hasLegalName
+IVE1.value = {'ALPHABET HOLDING COMPANY, INC.', 'ALPHABET INC'}
+TF1.interval [ 01-01-2019, 31-12-2019]
+
+16. In last 3 years, what is the maximum transaction value of IBM by Warren Buffet 
+-> TF1, Agg1, ME1, IVE1, IVE2 -> SemSIG8-->(should match to)SemSIG7
+-> last 3 years, average, traded value, Microsoft, Warren Buffet
+TF1.interval [ 01-01-2017, 31-12-2019]
+Agg1.op = "Maximum"
+Agg1.op = ME1
+ME1.element = SecuritiesTransaction.value, 
+IVE1.property=Corporation.hasLegalName
+IVE1.value = MICROSOFT CORP
+IVE2.property=Investor.Name
+IVE2.value = Warren E. Buffett
+
+
+
+===========
+Notes:
+===========
+Filters are optional - can be added/droppped
+GrouBys are optional - can be added and dropped
+
+
+GB/IVE - can be added/dropped
+
+
+an overview
+
+
+GOAL: 
+For each Q-SQL
+ - Get SemSig,ParamSig from Q
+ - Use ParamSig to generate SQLSig from SQL. --> SQLSig1/SQLSig2
+ - SQLSig_map <- RetriveSQLSig from the map(SemSig) -> Retrieval based on similar/equiavelnt signature taking care of adding/droppping of IVE/GBS
+ -> if SQLSig != SQLSig_map 
+ -> all the queries for SQLSig_map + Q
+ 	-> generate the feature space consider all extended attributes 
+ 	-> compute the reduct
+ 	-> Recomupute the SQLSig for the new reduct 
+ 	-> push it back to the map
+
+
+
+Your tasks: 
+Have this flow 
+Independent modules:
+	Reduct Computation 
+	Signature Validation -> treating IVE/GB as optional to figure out equivalent signatures  
+	SQL Signature Generation 
+
+
+
+First Step:
+ - Get SemSig,ParamSig from Q
+ - SQLSig_map <- RetriveSQLSig from the map(SemSig) -> Retrieval based on similar/equiavelnt signature taking care of adding/droppping of IVE/GBS
+ -> if SQLSig_labelled != SQLSig_map 
+ 	-> all the queries for SQLSig_map + Q
+ 	-> generate the feature space consider all extended attributes 
+ 	-> compute the reduct
+ 	-> Recomupute the SQLSig for the new reduct 
+ 	-> push it back to the map
+
+
+
+ 	20-30 + 50 
+
+ 	70% + 30% 
+
+ 	Metrics:
+
+ 	total Q , # signatures, # signature equivalence found, $ times recompute-reduct , Reduct Computation (time),  Ammortized Reduction Computation , SQL Signature Retrieve Generation
+
+

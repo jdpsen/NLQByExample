@@ -1,0 +1,19 @@
+California@California : PostalAddress.hasState
+
+Khun@Khun, Rachel@Rachel: Person.hasFirstName
+
+Khun@Khun, Rachel@Rachel: account_manager.hasFirstName
+
+Khun@Khun, Rachel@Rachel: customer.hasFirstName
+
+Rachel@Rachel, Rofougaran@Rofougaran: Person.hasLastName
+
+USD@Dollar, USD@$, USD@USD : Currency.hasMinorUnit
+
+Alphabet INC.@Alphabet, IBM Corp.@IBM , Microsoft@Microsoft: Corporation.hasLegalName
+
+1@sold, 1@selling, 2@buy,2@bought, 2@purchased, 2@purchases: SecuritiesTransaction.hasType
+
+stick@stick , stick@sticks : holding.hasDescription
+
+New York Stock Exchange@New York Stock Exchange, NASDAQ@NASDAQ :FinancialMarket.hasName

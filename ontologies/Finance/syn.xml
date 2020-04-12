@@ -1,0 +1,495 @@
+<synonyms>
+     
+	<concept
+		id="http://www.xbrlsite.com/2013/FinancialReportOntology/ElementOfFinancialStatement.owl.xml#ElementOfFinancialStatement">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartDate1">
+			<alias>calendar year</alias>
+		</property>
+	</concept>
+	
+	<concept
+		id="http://www.xbrlsite.com/2013/FinancialReportOntology/Disclosure.owl.xml#Disclosure">
+		<property 
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasMetricStartDate0">
+			<alias>calendar year</alias>
+		</property>
+	</concept>
+ 
+	<concept id="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/ClassificationSchemes/IndustrySectorClassifier">
+	<alias>industry</alias>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/LOAN/LoanContracts/LoanUpperTemp/EmailAddress">
+		<alias>email address</alias>
+		<alias>email</alias>
+		<alias>mail address</alias>
+		<alias>mail</alias>
+		<alias>contact</alias>
+		<alias>correspondence</alias>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Utilities/Values/hasValue0">
+		</property>
+
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/Address">
+
+
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/SecuritiesTransaction">
+		<alias>transaction</alias>
+		<alias>trade</alias>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasType">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasCount0">
+			<!-- <alias>count</alias> -->
+			<!-- <alias>number</alias> -->
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasSettlementDate">
+			<!--  <alias>year</alias>-->
+			<alias>how long</alias>
+			<alias>how much time</alias>
+			
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/Organization">
+
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName3">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesListings/FinancialMarket">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName5">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/Corporation">
+		<alias>company</alias>
+		<alias>business</alias>
+		<alias>enterprise</alias>
+		<alias>association</alias>
+		<alias>firm</alias>
+
+
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasLegalName0">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/hasDescription0">
+			<alias>description</alias>
+			<alias>about</alias>
+			<alias>detail</alias>
+			<alias>summary</alias>
+			<alias>specification</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Holding">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/hasCount1">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName2">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/hasDescription2">
+			<alias>description</alias>
+			<alias>about</alias>
+			<alias>detail</alias>
+			<alias>summary</alias>
+			<alias>specification</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/FinancialInstrument">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/isTransferable">
+			<alias>movable</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/LOAN/LoanContracts/LoanUpperTemp/PhoneNumber">
+		<alias>mobile</alias>
+		<alias>call up </alias>
+		<alias>dial</alias>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Utilities/Values/hasValue1">
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/PostalAddress">
+		<alias>home</alias>
+		<alias>house</alias>
+		<alias>lodging</alias>
+		<alias>base</alias>
+		<alias>apartment</alias>
+		<alias>condo</alias>
+		<property id="https://spec.edmcouncil.org/fibo/ontology/WCSExt/hasState">
+			<alias>state</alias>
+			<alias>territory</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/hasAddressLine2">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/hasAddressLine1">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/hasPostalCode">
+			<alias>zipcode</alias>
+			<alias>zip</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/hasCity">
+			<alias>town</alias>
+			<alias>place</alias>
+			<alias>capital</alias>
+			<alias>downtown</alias>
+			<alias>locality</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Security">
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/FinancialServiceAccount">
+		<alias>account</alias>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasCommonName">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasStartDate">
+			<alias>starting their account</alias>
+			<alias>starting account</alias>
+			<alias>account start</alias>
+			<alias>start date</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasAlias0">
+			<alias>called</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName1">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/hasDescription1">
+			<alias>description</alias>
+			<alias>about</alias>
+			<alias>detail</alias>
+			<alias>summary</alias>
+			<alias>specification</alias>
+		</property>
+
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesListings/ListedSecurity">
+		<alias>stock</alias>
+		<alias>share</alias>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasTickerSymbol1">
+			<alias>ticker symbol</alias>
+			<alias>symbol</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasLegalName1">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasAlias1">
+			<alias>called</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasListingDate">
+			<alias>registered date</alias>
+			<alias>filed date</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/VirtualAddress">
+	</concept>
+	<concept
+		id="http://www.omg.org/spec/LCC/Languages/LanguageRepresentation/Language">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasUniqueIdentifier">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName0">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Countries/Country">
+		<property
+			id="http://www.omg.org/spec/LCC/Countries/CountryRepresentation/hasNumericCountryCode">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/hasName4">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/MonetaryAmount">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasAmount">
+			<alias>value</alias>
+			<alias>price</alias>
+		</property>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person">
+		<alias>people</alias>
+		<alias>who</alias>
+		<alias>everyone</alias>
+		<alias>anyone</alias>
+		<alias>client</alias>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasGender">
+			<alias>sex</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasMiddleNameOrInitial">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasLastName">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasFirstName">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasDateOfBirth">
+			<alias>D.O.B.</alias>
+			<alias>DOB</alias>
+			<alias>born</alias>
+			<alias>birthday</alias>
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasPersonName">
+			<alias>name</alias>
+			<alias>called</alias>
+			<alias>alias</alias>
+			<alias>identity</alias>
+			<alias>nickname</alias>
+			<alias>title</alias>
+			<alias>label</alias>
+		</property>
+	</concept>
+
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency">
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasNumericCode">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasCurrencyName">
+		</property>
+		<property
+			id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasMinorUnit">
+		</property>
+	</concept>
+
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/ContractParty">
+		<alias>insider</alias>
+		<alias>executives</alias>
+		<alias>board</alias>
+	</concept>
+	<concept
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract">
+		<alias>positions</alias>
+		<alias>history</alias>
+	</concept>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person_isa_https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent">
+	</relation>
+	<relation
+		id="http://watson.ibm.com/project/wcs/TPOX#customer_isa_https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesListings/ListedSecurity_isa_https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Security">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/LOAN/LoanContracts/LoanUpperTemp/EmailAddress_isa_https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/VirtualAddress">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/LOAN/LoanContracts/LoanUpperTemp/PhoneNumber_isa_https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/VirtualAddress">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/PostalAddress_isa_https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/Address">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/Organization_isa_https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent">
+	</relation>
+	<relation
+		id="http://watson.ibm.com/project/wcs/TPOX#account_manager_isa_https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Security_isa_https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/FinancialInstrument">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/Corporation_isa_https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/Organization">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/VirtualAddress_isa_https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/Address">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations_sub2/isHeldBy">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/isUsedBy">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasPlaceOfBirth">
+		<alias>birth place</alias>
+		<alias>birthplace</alias>
+		<alias>motherland</alias>
+		<alias>country of origin</alias>
+		<alias>native</alias>
+		<alias>place of origin</alias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasPrice">
+		<alias>value</alias>
+		<alias>amount</alias>
+		<alias>bill</alias>
+		<alias>expense</alias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesListings/isTradedOn">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries_sub1/hasCountry">
+		<alias>in country</alias>
+		<lias>has country</lias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations_sub3/isProvidedBy">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/OwnershipAndControl/Ownership/isOwnedBy">
+		<alias>account holder</alias>
+		<alias>account holders</alias>
+		<alias>customer</alias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/hasCitizenship">
+		<alias>citizen</alias>
+		<alias>citizenship</alias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/IdentifiersAndIndices/isIndexTo">
+		<alias>live</alias>
+		<alias>resides</alias>
+		<alias>locate</alias>
+		<alias>settle</alias>
+		<alias>nest</alias>
+		<alias>occupy</alias>
+		<alias>dwell</alias>
+		<alias>bide</alias>
+		<alias>bunk</alias>
+
+		<!-- <alias>address</alias> <alias>addresses</alias> -->
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations_sub1/isManagedBy">
+		<alias>managed by</alias>
+		<alias>account manager</alias>
+		<alias>manager</alias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Relations_sub1/refersTo">
+		<alias>transaction for</alias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/FormalOrganizations/isDomiciledIn">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount_sub1/hasCurrency">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Relations_sub2/refersTo">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasLastTradedValue">
+		<alias>last traded value</alias>
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/isFacilitatedBy">
+	</relation>
+	<relation
+		id="https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesListings/isTradedOn">
+		<alias> is traded on </alias>
+		<alias> traded on </alias>
+		<alias> trade on </alias>
+	</relation>
+</synonyms>
