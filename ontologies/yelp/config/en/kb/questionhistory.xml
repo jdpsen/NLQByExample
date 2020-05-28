@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model language="en">
+	<import file="core-model.xml" />
+	<concept name="QuestionHistory" superConcept="ManagedElement">
+		<property name="id" type="Integer" cardinality="ExactlyOne">
+			<annotation name="isKeyProperty" type="Boolean">true</annotation>
+			<annotation name="mapping">ID</annotation>
+			<annotation name="displayable" type="Boolean">true</annotation>
+		</property>
+		<property name="time" type="DateTime" cardinality="ExactlyOne">
+			<annotation name="mapping">TIME</annotation>
+			<annotation name="displayable" type="Boolean">true</annotation>
+		</property>
+		<property name="text" type="String" cardinality="ExactlyOne">
+			<annotation name="mapping">QUESTION</annotation>
+			<annotation name="displayable" type="Boolean">true</annotation>
+		</property>
+		<annotation name="answerType">Table</annotation>
+		<annotation name="mapping">QUESTIONS</annotation>
+	</concept>
+
+	<provider name="QuestionHistoryProvider" forConcept="QuestionHistory"
+		implementation="com.ibm.cognit.provider.QuestionHistoryProvider" />
+		
+	<elementIdentity name="question history" language="en">
+		<conceptRef name="QuestionHistory" />
+		<label>question history</label>
+	</elementIdentity>	
+	<elementIdentity name="question id" language="en">
+		<propertyRef name="id" concept="QuestionHistory" />
+		<label>ID</label>
+	</elementIdentity>
+	<elementIdentity name="question time" language="en">
+		<propertyRef name="time" concept="QuestionHistory" />
+		<label>Date</label>
+	</elementIdentity>
+	<elementIdentity name="question text" language="en">
+		<propertyRef name="text" concept="QuestionHistory" />
+		<label>Question</label>
+	</elementIdentity>
+</model>

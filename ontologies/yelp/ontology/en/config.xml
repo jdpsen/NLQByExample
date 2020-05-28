@@ -1,0 +1,17 @@
+<config>
+<concept id="http://com.ibm.tatzia.YELP#Checkin">
+	<defaultmeasure id=“http://com.ibm.tatzia.YELP/Checkin#count”/>
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Neighborhood">
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Review">
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Business">
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Category">
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#User">
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Tip">
+</concept>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<examples language="en">
+    <example>
+      <title>how many threatactor by exploittarget</title>
+      <answerType>Data</answerType>
+      <conceptRef name="RecentTransaction" />
+    </example>
+     <example>
+      <title>how many threatactor \"1033622\"  by exploittarget"</title>
+      <answerType>Data</answerType>
+      <conceptRef name="RecentTransaction" />
+    </example>
+        <example>
+      <title>List all the CoursesOfAction with \"Cisco has issued a fix\" group by threatactor</title>
+      <answerType>Data</answerType>
+      <conceptRef name="RecentTransaction" />
+    </example>
+</examples>

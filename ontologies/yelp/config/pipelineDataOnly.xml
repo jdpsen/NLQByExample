@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pipeline>
+    <unit class="com.ibm.cognit.unit.nlp.TextProcessor"/>
+    <unit class="com.ibm.cognit.unit.recognizer.ModelEntityRecognizer"/>
+    <unit class="com.ibm.cognit.unit.recognizer.QueryTypeRecognizer"/>
+    <unit class="com.ibm.cognit.unit.disambiguator.AutomaticDisambiguator"/>
+    <unit class="com.ibm.cognit.unit.clarifier.MultipleElementIdentitiesClarifier"/>
+    <unit class="com.ibm.cognit.unit.recognizer.GroupedByPropertyEntityRecognizer"/>
+    <unit class="com.ibm.cognit.unit.recognizer.PropertyValueRecognizer"/>
+    <unit class="com.ibm.cognit.unit.interpreter.DataQueryInterpreter"/>
+    <unit class="com.ibm.cognit.unit.answerer.DataQueryAnswerer"/>
+    <unit class="com.ibm.cognit.unit.answerer.CounterDataQueryAnswerer"/>
+    <unit class="com.ibm.cognit.unit.visualizer.TextVisualizer"/>
+    <unit class="com.ibm.cognit.unit.ranker.OverallRanker" />
+    <unit class="com.ibm.cognit.unit.ranker.DataQueryNLRanker"/>
+</pipeline>

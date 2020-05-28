@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pipeline>
+    <unit class="com.ibm.tatzia.nlq.unit.nlp.TextProcessor"/>
+
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.StrongModelEntityRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.GroupedByPropertyEntityRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.PropertyValueRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.FocusEntityRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.IndexedValuesRecognizer"/> 
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.WeakModelEntityRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.OrderByEntityRecognizer"/>
+
+    <unit class="com.ibm.tatzia.nlq.unit.interpreter.RelationalQueryInterpreter"/>
+  	
+  	<unit class="com.ibm.tatzia.nlq.unit.answerer.QueryAnswerer"/>
+   <!--  <unit class="com.ibm.tatzia.nlq.unit.visualizer.AnnotatedTextVisualizer"/>-->
+
+</pipeline>

@@ -1,0 +1,10 @@
+chinese restaurants, seafood, indian restaurant, escape games, pet hospices, bakeries, apple stores, irish pubs, breweries, egyptian restaurants, italian delis, mexican restaurant, gyms, dentists, bars, dance schools, thai restaurants, pet groomers, restaurants, morrocan restaurants, italian restaurants, preschools : Category/category_name
+Texas, Pennsylvania: Business/state
+Madison, Los Angeles, Dallas, Pittsburgh, Edinburgh, San Diego: Business/city
+Taj Mahal, Panda Express, Cafe Zinho, Sushi Too, Texas de Brazil, Barrio Café, Messa Grill, Acacia Cafe, Target, Walmarts, Starbucks, Flat Top Grill, Vintner Grill, Kaboob Palace, Whataburger, MGM Grand Buffet, Bistro Di Napoli: Business.name
+Friday, Fridays, Sunday, Sundays : Checkin.day
+Michelle, Niloofar, Patrick, Adrienne, Christine : User.name
+2015, 2015: Review.year
+March, April: Review.month
+March, April : Tip.month
+Hazelwood, Meadowood, Stone Meadows, Brighton Heights, South Summerlin: Neighborhood.neighborhood_name

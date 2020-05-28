@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<examples>
+    <example>
+      <sentence>show me all incidents created since June</sentence>
+      <propertyRef name="creationDate" concept="Incident" />
+    </example>	
+    <example>
+      <sentence>show me incidents created from January to June</sentence>
+      <propertyRef name="creationDate" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin since June</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin since June and reported by sam</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+      <propertyRef name="reportedBy" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin since June and reported by sam with urgency 3</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+      <propertyRef name="reportedBy" concept="Incident" />
+      <propertyRef name="urgency" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin since June and reported by sam with urgency 3 about cellphone</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+      <propertyRef name="reportedBy" concept="Incident" />
+      <propertyRef name="urgency" concept="Incident" />
+      <propertyRef name="description" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents reported by sam, created by maxadmin since June, about cellphone and with urgency 3</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+      <propertyRef name="reportedBy" concept="Incident" />
+      <propertyRef name="urgency" concept="Incident" />
+      <propertyRef name="description" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin, reported by sam since June and with urgency 3 about cellphone</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+      <propertyRef name="reportedBy" concept="Incident" />
+      <propertyRef name="urgency" concept="Incident" />
+      <propertyRef name="description" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created and reported by maxadmin since June with urgency 3 about cellphone</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+      <propertyRef name="reportedBy" concept="Incident" />
+      <propertyRef name="urgency" concept="Incident" />
+      <propertyRef name="description" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents about cellphone, created by maxadmin and reported by sam since June with urgency 3</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+      <propertyRef name="reportedBy" concept="Incident" />
+      <propertyRef name="urgency" concept="Incident" />
+      <propertyRef name="description" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents by status</sentence>
+      <propertyRef name="status" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents by creation date</sentence>
+      <propertyRef name="creationDate" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents by urgency</sentence>
+      <propertyRef name="urgency" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin by status</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="status" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin by creation date</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="creationDate" concept="Incident" />
+    </example>
+    <example>
+      <sentence>show me incidents created by maxadmin since June by urgency</sentence>
+      <propertyRef name="createdBy" concept="Incident" />
+      <propertyRef name="urgency" concept="Incident" />
+    </example>
+    <example>
+      <sentence>incidents created since June by creation date</sentence>
+      <propertyRef name="creationDate" concept="Incident" />
+    </example>
+</examples>	

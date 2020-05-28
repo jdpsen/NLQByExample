@@ -1,0 +1,68 @@
+<synonyms>
+<concept id="http://com.ibm.tatzia.YELP#Checkin">
+<property id="http://com.ibm.tatzia.YELP/Checkin#day">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Checkin#count">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Neighborhood">
+<property id="http://com.ibm.tatzia.YELP/neighborhood#neighborhood_name">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Review">
+<property id="http://com.ibm.tatzia.YELP/Review#text">
+	<alias>review</alias>
+</property>
+<property id="http://com.ibm.tatzia.YELP/Review#month">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Review#year">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Review#rating">
+	<alias>star</alias>
+	<alias>stars</alias>
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Business">
+	<alias>businesses</alias>
+<property id="http://com.ibm.tatzia.YELP/Business#is_open">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#bid">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#full_address">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#longitude">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#review_count">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#rating">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#state">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#latitude">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#city">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Business#name">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Category">
+<property id="http://com.ibm.tatzia.YELP/Category#category_name">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#User">
+<property id="http://com.ibm.tatzia.YELP/User#uid">
+</property>
+<property id="http://com.ibm.tatzia.YELP/User#name">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.YELP#Tip">
+<property id="http://com.ibm.tatzia.YELP/Tip#year">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Tip#text">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Tip#month">
+</property>
+<property id="http://com.ibm.tatzia.YELP/Tip#likes">
+</property>
+</concept>
+</synonyms>

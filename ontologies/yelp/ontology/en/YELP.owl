@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://com.ibm.tatzia.YELP#"
+     xml:base="http://com.ibm.tatzia.YELP"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://com.ibm.tatzia.YELP"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#hasCategory -->
+
+    <owl:ObjectProperty rdf:about="http://com.ibm.tatzia.YELP/Business#hasCategory">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://com.ibm.tatzia.YELP#Category"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#hasCheckin -->
+
+    <owl:ObjectProperty rdf:about="http://com.ibm.tatzia.YELP/Business#hasCheckin">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://com.ibm.tatzia.YELP#Checkin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#hasNeighborhood -->
+
+    <owl:ObjectProperty rdf:about="http://com.ibm.tatzia.YELP/Business#hasNeighborhood">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://com.ibm.tatzia.YELP#Neighborhood"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Review#byUser -->
+
+    <owl:ObjectProperty rdf:about="http://com.ibm.tatzia.YELP/Review#byUser">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Review"/>
+        <rdfs:range rdf:resource="http://com.ibm.tatzia.YELP#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Review#forBusiness -->
+
+    <owl:ObjectProperty rdf:about="http://com.ibm.tatzia.YELP/Review#forBusiness">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Review"/>
+        <rdfs:range rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Tip#byUser -->
+
+    <owl:ObjectProperty rdf:about="http://com.ibm.tatzia.YELP/Tip#byUser">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Tip"/>
+        <rdfs:range rdf:resource="http://com.ibm.tatzia.YELP#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Tip#forBusiness -->
+
+    <owl:ObjectProperty rdf:about="http://com.ibm.tatzia.YELP/Tip#forBusiness">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Tip"/>
+        <rdfs:range rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#bid -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#bid">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#city -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#city">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#full_address -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#full_address">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#is_open -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#is_open">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#latitude -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#latitude">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#longitude -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#longitude">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#name -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#name">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#rating -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#rating">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#review_count -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#review_count">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Business#state -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Business#state">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Business"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Category#category_name -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Category#category_name">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Checkin#count -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Checkin#count">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Checkin"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Checkin#day -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Checkin#day">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Checkin"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Review#month -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Review#month">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Review"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Review#rating -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Review#rating">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Review"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Review#text -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Review#text">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Review"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Review#year -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Review#year">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Review"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Tip#likes -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Tip#likes">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Tip"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Tip#month -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Tip#month">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Tip"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Tip#text -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Tip#text">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Tip"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/Tip#year -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/Tip#year">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Tip"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/User#name -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/User#name">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/User#uid -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/User#uid">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP/neighborhood#neighborhood_name -->
+
+    <owl:DatatypeProperty rdf:about="http://com.ibm.tatzia.YELP/neighborhood#neighborhood_name">
+        <rdfs:domain rdf:resource="http://com.ibm.tatzia.YELP#Neighborhood"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP#Business -->
+
+    <owl:Class rdf:about="http://com.ibm.tatzia.YELP#Business"/>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP#Category -->
+
+    <owl:Class rdf:about="http://com.ibm.tatzia.YELP#Category"/>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP#Checkin -->
+
+    <owl:Class rdf:about="http://com.ibm.tatzia.YELP#Checkin"/>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP#Neighborhood -->
+
+    <owl:Class rdf:about="http://com.ibm.tatzia.YELP#Neighborhood"/>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP#Review -->
+
+    <owl:Class rdf:about="http://com.ibm.tatzia.YELP#Review"/>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP#Tip -->
+
+    <owl:Class rdf:about="http://com.ibm.tatzia.YELP#Tip"/>
+    
+
+
+    <!-- http://com.ibm.tatzia.YELP#User -->
+
+    <owl:Class rdf:about="http://com.ibm.tatzia.YELP#User"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://com.ibm.tatzia.YELP#Business"/>
+            <rdf:Description rdf:about="http://com.ibm.tatzia.YELP#Category"/>
+            <rdf:Description rdf:about="http://com.ibm.tatzia.YELP#Checkin"/>
+            <rdf:Description rdf:about="http://com.ibm.tatzia.YELP#Neighborhood"/>
+            <rdf:Description rdf:about="http://com.ibm.tatzia.YELP#Review"/>
+            <rdf:Description rdf:about="http://com.ibm.tatzia.YELP#Tip"/>
+            <rdf:Description rdf:about="http://com.ibm.tatzia.YELP#User"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

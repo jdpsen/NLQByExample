@@ -1,0 +1,25 @@
+Tom Cruise, Benedict Cumberbatch, Jason Robards, Woody Strode, Rowan Atkinson, Gabriele Ferzetti, Shahab Hosseini, Robin Wright, Scarlett Johansson, Taraneh Alidoosti, Kerry Washington, Scott Foley, Kevin Spacey, Christoph Waltz, Matt Damon, Ben Afleck, Keira Knightley, Ronald Reagen, Humphrey Bogart, Tom Hanks, Angelina Jolie, Brad Pitt, Kate Winslet, Ellen Page, Jennifer Aniston : Actor/name
+Steven Spielberg, Alfred Hitchcock, Quentin Tarantino, Woody Allen, Matt Damon, Asghar Farhadi, Jim Jarmusch: Director/name
+Grumpier Old Men, Finding Nemo, Camp X-Ray, The Immitation Game, Rush Hour 3, Daddy Long Legs, Inglourious Basterds, Django Unchained, the past, Dead Poets Society, My Cousin Vinny, Revolutionary Road, Juno, A Beautiful Mind, Jurassic Park, Joy, Catch me if you can, Saving Private Ryan : Movie/title
+Scandal, House of Cards, The Truman Show, Mickey Mouse : TV_Series/title
+Captain Miller, Alan Turing, John Nash, Daffy Duck, Olivia Pope, Mr. Bean, Vinny Gambini: Cast/role
+Matt Damon, Woody Allen : Writer/name
+Woody Allen, Netflix, Walt Disney, Shonda Rhimes: Producer/name
+comedies, Sci-Fi, James Bond : Genre/genre
+female : Actor/gender
+female : Person/gender
+female : Director/gender
+female : Writer/gender
+female : Producer/gender
+Los Angeles, New York, Austin, Milan : Person/birth_city
+Los Angeles, New York, Austin, Milan, Tehran : Actor/birth_city
+Los Angeles, New York, Austin, Milan : Writer/birth_city
+Los Angeles, New York, Austin, Milan : Director/birth_city
+Los Angeles, New York, Austin, Milan : Producer/birth_city
+Canada, Italy, Afghanistan, Iran : Person/nationality
+Canada, Italy, Afghanistan, Iran, China : Actor/nationality
+Canada, Italy, Afghanistan, Iran : Director/nationality
+Canada, Italy, Afghanistan, Iran : Producer/nationality
+Canada, Italy, Afghanistan, Iran : Writer/nationality
+persians, iraq war, autism, nuclear weapons : Keyword/keyword
+NBCUniversal : Company/name

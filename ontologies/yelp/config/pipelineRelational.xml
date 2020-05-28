@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pipeline>
+
+    <unit class="com.ibm.tatzia.nlq.unit.nlp.TextProcessor"/>
+    
+
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.StrongModelEntityRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.GroupedByPropertyEntityRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.PropertyValueRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.FocusEntityRecognizer"/>
+	 <unit class="com.ibm.tatzia.nlq.unit.recognizer.RelationalIndexedValuesRecognizer"/>    
+	 <!--  <unit class="com.ibm.tatzia.nlq.unit.recognizer.PropertyValueRecognizer"/>
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.WeakModelEntityRecognizer"/>
+     <unit class="com.ibm.tatzia.nlq.unit.recognizer.MatchValuesRecognizer"/> -->
+    <unit class="com.ibm.tatzia.nlq.unit.recognizer.AggrEntityRecognizer"/> 
+    <!--  <unit class="com.ibm.tatzia.nlq.unit.nlp.IntentRecognizer"/>-->
+
+  <unit class="com.ibm.tatzia.nlq.unit.interpreter.RelationalQueryInterpreter"/>
+  <unit class="com.ibm.tatzia.nlq.unit.QuerySuggester.QuerySuggestion"/>
+  	<!--  <unit class="com.ibm.tatzia.nlq.unit.clarifier.EntityNamesClarifier"/>-->
+ <!--    <unit class="com.ibm.tatzia.nlq.unit.answerer.RelationalQueryAnswerer"/> -->
+   
+   <!--  <unit class="com.ibm.tatzia.nlq.unit.visualizer.AnnotatedTextVisualizer"/>-->
+
+</pipeline>

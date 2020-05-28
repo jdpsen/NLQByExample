@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model>
+	<qualifierType name="answerType" type="String" cardinality="ExactlyOne" />
+
+	<qualifierType name="queryBase" type="String" cardinality="ZeroOrOne" />
+
+	<qualifierType name="responsePath" type="String" cardinality="ZeroOrOne" />
+	
+	<qualifierType name="isDefaultTimeProperty" type="Boolean" cardinality="ZeroOrOne">
+		<defaultValue>false</defaultValue>
+	</qualifierType>
+	
+	<qualifierType name="displayPosition" type="Integer" cardinality="ZeroOrOne" />
+	
+	<qualifierType name="filterType" type="String" cardinality="ZeroOrOne">
+		<defaultValue>Equal</defaultValue>
+	</qualifierType>
+	
+	<qualifierType name="isKeyProperty" type="Boolean" cardinality="ZeroOrOne">
+		<defaultValue>false</defaultValue>
+	</qualifierType>
+	
+	<qualifierType name="mapping" type="String" cardinality="ZeroOrOne">
+	
+	<qualifierType name="valuePOS" type="String" cardinality="ZeroOrOne" />
+		<defaultValue>false</defaultValue>
+	</qualifierType>
+	
+	<qualifierType name="valueDep" type="String" cardinality="ZeroOrOne" />
+	
+	<qualifierType name="likeCueWord" type="String" cardinality="ZeroOrOne" />
+
+	<qualifierType name="calculable" type="String" cardinality="ZeroOrOne" />
+	
+    <concept name="ManagedElement" />
+    
+    <concept name="Metrics" superConcept="ManagedElement" />
+    
+    <concept name="Product" superConcept="ManagedElement">
+        <annotation name="answerType">Text</annotation>
+    </concept>   
+    
+    <concept name="Document" superConcept="ManagedElement">
+        <property name="product" type="String" cardinality="ZeroOrMany"/>
+    </concept>
+    
+    <elementIdentity name="product" language="en">
+    	<conceptRef name="Product" />
+        <label>Product</label>
+        <annotation name="suggestion">Products</annotation>
+    </elementIdentity>
+</model>

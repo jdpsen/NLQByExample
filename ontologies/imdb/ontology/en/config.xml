@@ -1,0 +1,39 @@
+<config>
+<concept id="http://com.ibm.tatzia.IMDB#Producer">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Movie">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Cast">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#TV_Series">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#WrittenBy">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Copyright">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Tags">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Director">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Genre">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Classification">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Picture">
+	<deafulttime id=“http://com.ibm.tatzia.IMDB/Picture#release_year”/>
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Writer">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Actor">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Company">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Person">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#MadeBy">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#DirectedBy">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Keyword">
+</concept>
+</config>

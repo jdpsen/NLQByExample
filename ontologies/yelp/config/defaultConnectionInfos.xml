@@ -1,0 +1,78 @@
+<connectionInfos>
+	<connectionInfo name="watson-analytics">
+		<serverUrl>https://watson.analytics.ibmcloud.com</serverUrl>
+		<user>ibmbetauser1@gmail.com</user>
+		<password>Hostedbeta1</password>
+	</connectionInfo>
+
+	<connectionInfo name="it-service-management">
+		<serverUrl>https://siwr35cdwsa-tb1.sccd.ibmserviceengage.com/maximo_z7qw</serverUrl>
+		<user>ibmbetauser1@gmail.com</user>
+		<password>Hostedbeta1</password>
+	</connectionInfo>
+
+	<connectionInfo name="application-monitoring">
+		<serverUrl>https://2dc1e5088fdfaad2bac19ccef5b5181e.customers.na.apm.ibmserviceengage.com</serverUrl>
+		<user>ibmbetauser1@gmail.com</user>
+		<password>Hostedbeta1</password>
+	</connectionInfo>
+
+	<connectionInfo name="omnibus-on-premise">
+		<serverUrl>https://129.40.56.140:16311/ibm/console</serverUrl>
+		<user>ibmbetauser1@gmail.com</user>
+		<password>Hostedbeta1</password>
+	</connectionInfo>
+
+<!-- SE Console Demo Systems
+	<connectionInfo name="application-monitoring">
+		<serverUrl>https://ad08c6b4b10fb2e7f0ddcf32e7630476.customers.na.apm.ibmserviceengage.com</serverUrl>
+		<user>ibmbetauser1@gmail.com</user>
+		<password>Hostedbeta1</password>
+	</connectionInfo>
+
+	<connectionInfo name="it-service-management">
+		<serverUrl>https://siwr35cdwsa-tb1.sccd.ibmserviceengage.com/maximo_z7qw</serverUrl>
+		<user>ibmbetauser1@gmail.com</user>
+		<password>Hostedbeta1</password>
+	</connectionInfo>
+
+	<connectionInfo name="omnibus-on-premise">
+		<serverUrl>https://129.40.68.113:16311/ibm/console</serverUrl>
+		<user>ibmbetauser1@gmail.com</user>
+		<password>Hostedbeta1</password>
+	</connectionInfo>
+-->
+
+<!-- Other Demo Systems
+	<connectionInfo name="it-service-management">
+		<serverUrl>https://siwr35cdwsa-tk5.sccd.ibmserviceengage.com/maximo_b1dk</serverUrl>
+		<user>scott</user>
+		<password>d3moid!!!</password>
+	</connectionInfo>
+
+	<connectionInfo name="it-service-management">
+		<serverUrl>http://angusvm1.tivlab.austin.ibm.com/maximo</serverUrl>
+		<user>maxadmin</user>
+		<password>sm@rtcl0ud</password>
+	</connectionInfo>
+
+	<connectionInfo name="it-service-management">
+		<serverUrl>http://nc9042052070.tivlab.raleigh.ibm.com/maximo</serverUrl>
+		<user>maxadmin</user>
+		<password>sm@rtcl0ud</password>
+	</connectionInfo>
+
+	<connectionInfo name="it-service-management">
+		<serverUrl>https://siwr35cdwsa-tk7.sccd.ibmserviceengage.com/maximo_b1dk</serverUrl>
+		<user>scott</user>
+		<password>d3moid!!!</password>
+	</connectionInfo>
+
+	<connectionInfo name="event-management">
+		<serverUrl>http://devtest42.hursley.ibm.com:6767/objectserver/restapi/sql/factory</serverUrl>
+		<user>root</user>
+	</connectionInfo>
+-->
+</connectionInfos>
+
+

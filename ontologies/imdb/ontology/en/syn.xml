@@ -1,0 +1,72 @@
+<synonyms>
+<concept id="http://com.ibm.tatzia.IMDB#Producer">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Movie">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Cast">
+<property id="http://com.ibm.tatzia.IMDB/Cast#role">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#TV_Series">
+<alias>series</alias>
+<alias>tv series</alias>
+<property id="http://com.ibm.tatzia.IMDB/TV_Series#number_of_episodes">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/TV_Series#number_of_seasons">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#WrittenBy">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Copyright">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Tags">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Director">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Genre">
+<property id="http://com.ibm.tatzia.IMDB/Genre#genre">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Classification">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Picture">
+<property id="http://com.ibm.tatzia.IMDB/Picture#budget">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Picture#release_year">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Picture#title_aka">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Picture#title">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Writer">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Actor">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Company">
+<property id="http://com.ibm.tatzia.IMDB/Company#name">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Company#country_code">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Person">
+<property id="http://com.ibm.tatzia.IMDB/Person#birth_year">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Person#nationality">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Person#gender">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Person#name">
+</property>
+<property id="http://com.ibm.tatzia.IMDB/Person#birth_city">
+</property>
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#MadeBy">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#DirectedBy">
+</concept>
+<concept id="http://com.ibm.tatzia.IMDB#Keyword">
+<property id="http://com.ibm.tatzia.IMDB/Keyword#keyword">
+</property>
+</concept>
+</synonyms>

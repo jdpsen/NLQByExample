@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pipeline>
+    <unit class="com.ibm.cognit.unit.nlp.TextProcessor"/>
+    <unit class="com.ibm.cognit.unit.recognizer.ModelEntityRecognizer"/>
+    <unit class="com.ibm.cognit.unit.clarifier.MultipleElementIdentitiesClarifier"/>
+    <unit class="com.ibm.cognit.unit.interpreter.TextQueryInterpreter"/>
+    <unit class="com.ibm.cognit.unit.searcher.TextSearcher"/>
+    <unit class="com.ibm.cognit.unit.scorer.EntityScorer"/>
+    <unit class="com.ibm.cognit.unit.scorer.TitleScorer"/>
+    <unit class="com.ibm.cognit.unit.scorer.SummaryScorer"/>
+    <unit class="com.ibm.cognit.unit.ranker.OverallRanker">
+        <score id="com.ibm.cognit.unit.scorer.EntityScorer" weight="2.0"/>
+        <score id="com.ibm.cognit.unit.scorer.TitleScorer" weight="1.0"/>
+        <score id="com.ibm.cognit.unit.scorer.SummaryScorer" weight="0.75"/>
+        <score id="com.ibm.cognit.unit.searcher.TextSearcher" weight="0.5"/>
+    </unit>
+    <!-- <unit class="com.ibm.unit.cognit.clarifier.EntitySelector"/> -->
+    <unit class="com.ibm.cognit.unit.formulator.TextAnswerFormulator"/>
+    <unit class="com.ibm.cognit.unit.ranker.TextQueryNLRanker"/>
+</pipeline>
