@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <Ontology rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#author_domain_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#author_domain_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_author"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#author_writes_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#author_writes_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#author"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#writes"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#citedby -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#citedby">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#cite"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#cites -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#cites">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#cite"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication2"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#conference_domain_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#conference_domain_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_author_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_author_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#author"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_author"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#conference"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#journal"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#keyword"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#journal_domain_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#journal_domain_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#keyword_domain_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_domain_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#keyword_publication_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_publication_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#keyword"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#organization_author_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#organization_author_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#author"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#organization"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#publication_conference_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#publication_conference_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#conference"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#publication_domain_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#publication_domain_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#publication_journal_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#publication_journal_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#journal"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#variations -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#variations">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#keyword"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_variations"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#writes_publication_FK -->
+
+    <ObjectProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#writes_publication_FK">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#writes"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#keyword_short -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_short">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#keyword"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/author#homepage -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/author#homepage">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#author"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/author#name -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/author#name">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#author"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/conference#full_name -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/conference#full_name">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#conference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/conference#homepage -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/conference#homepage">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#conference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/conference#name -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/conference#name">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#conference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/domain#name -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/domain#name">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#domain"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/journal#full_name -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/journal#full_name">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#journal"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/journal#homepage -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/journal#homepage">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#journal"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/journal#name -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/journal#name">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#journal"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/keyword#keyword -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/keyword#keyword">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#keyword"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/keyword#variation -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/keyword#variation">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_variations"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/organization#continent -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/organization#continent">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#organization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/organization#homepage -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/organization#homepage">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#organization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/organization#name -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/organization#name">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#organization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication#abstract -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication#abstract">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication#citation_num -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication#citation_num">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication#doi -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication#doi">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication#reference_num -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication#reference_num">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication#title -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication#title">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication2#title -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication2#title">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication2"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication#year -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication#year">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </DatatypeProperty>
+    
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas/publication2#year -->
+
+    <DatatypeProperty rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas/publication2#year">
+        <rdfs:domain rdf:resource="http://watson.ibm.com/project/WCS/NLQ/mas#publication2"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </DatatypeProperty>
+    
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#author -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#author"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#cite -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#cite"/>
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#cite -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#publication2"/>
+    
+	
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#conference -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#conference"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_author -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_author"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#journal -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#journal"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#keyword -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#keyword"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#keyword_variations -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_variations"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#organization -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#organization"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#publication -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#publication"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword"/>
+    
+
+
+    <!-- http://watson.ibm.com/project/WCS/NLQ/mas#writes -->
+
+    <Class rdf:about="http://watson.ibm.com/project/WCS/NLQ/mas#writes"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,125 @@
+<synonyms>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain">
+		<alias>area</alias>
+		<alias>areas</alias>
+		<alias>domains</alias>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/domain#name">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal">
+	</concept>
+	<concept
+		id="http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#keyword">
+		<alias>keywords</alias>
+		<alias>keyword</alias>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/keyword#keyword">
+		</property>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_short">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#cite">
+		<alias>cited</alias>
+		<alias>citations</alias>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#journal">
+		<alias>journal</alias>
+		<alias>journals</alias>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/journal#name">
+		</property>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/journal#homepage">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/journal#full_name">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#author">
+		<alias>authors</alias>
+		<alias>researchers</alias>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/author#homepage">
+		</property>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/author#name">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#organization">
+		<alias>organizations</alias>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/organization#homepage">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/organization#continent">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/organization#name">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#conference">
+		<alias>conferences</alias>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/conference#full_name">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/conference#homepage">
+		</property>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/conference#name">
+			<alias>conference</alias>
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#publication">
+		<alias>paper</alias>
+		<alias>papers</alias>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#year">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#reference_num">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#citation_num">
+			<alias>number of citations</alias>
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#abstract">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#title">
+		</property>
+		<property id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#doi">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#publication2">
+		<alias>paper</alias>
+		<alias>papers</alias>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/publication2#year">
+		</property>
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/publication2#title">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_author">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_variations">
+		<property
+			id="http://watson.ibm.com/project/WCS/NLQ/mas/keyword#variation">
+		</property>
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#writes">
+		<alias>published</alias>
+		<alias>publish</alias>
+		<alias>publishes</alias>
+	</concept>
+	<relation id="http://watson.ibm.com/project/WCS/NLQ/mas#citedby">
+		<alias>referenced</alias>
+		<alias>cited by</alias>
+	</relation>
+	<relation id="http://watson.ibm.com/project/WCS/NLQ/mas#cites">
+		<alias>references</alias>
+	</relation>
+</synonyms>

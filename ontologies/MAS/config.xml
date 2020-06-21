@@ -1,0 +1,65 @@
+<config>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/domain#name"
+			semantictype="other" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/domain#name" />
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_journal">
+	</concept>
+	<concept
+		id="http://watson.ibm.com/project/WCS/NLQ/mas#publication_keyword">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_keyword">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#keyword">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/keyword#keyword"
+			semantictype="other" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/keyword#keyword" />
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#cite">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#journal">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/journal#name"
+			semantictype="other" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/journal#name" />
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#author">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/author#name"
+			semantictype="person" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/author#name" />
+
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#organization">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/organization#name"
+			semantictype="company" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/organization#name" />
+
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#conference">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/conference#name"
+			semantictype="other" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/conference#name" />
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_conference">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_publication">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#publication">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#title"
+			semantictype="other" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/publication#title" />
+	</concept>
+
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#publication2">
+		<index id="http://watson.ibm.com/project/WCS/NLQ/mas/publication2#title"
+			semantictype="other" />
+		<key id="http://watson.ibm.com/project/WCS/NLQ/mas/publication2#title" />
+	</concept>
+
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#domain_author">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#keyword_variations">
+	</concept>
+	<concept id="http://watson.ibm.com/project/WCS/NLQ/mas#writes">
+	</concept>
+</config>
